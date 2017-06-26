@@ -1,6 +1,6 @@
 class Beer < ApplicationRecord
 
-  belongs_to :location
+  belongs_to :brewery
   # , :foreign_key => :location
 
 

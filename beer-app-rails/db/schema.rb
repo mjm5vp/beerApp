@@ -18,10 +18,55 @@ ActiveRecord::Schema.define(version: 20170623184101) do
   create_table "beers", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.bigint "location_id"
+    t.string "abv"
+    t.string "ibu"
+    t.integer "glasswareId"
+    t.string "glass"
+    t.integer "srmId"
+    t.string "availableId"
+    t.string "available"
+    t.integer "styleId"
+    t.string "isOrganic"
+    t.string "hasLabels"
+    t.string "year"
+    t.string "status"
+    t.string "foodPairings"
+    t.string "servingTemperature"
+    t.string "servingTemperatureDisplay"
+    t.integer "beerVariationId"
+    t.string "beerVariation"
+    t.bigint "brewery_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["location_id"], name: "index_beers_on_location_id"
+    t.index ["brewery_id"], name: "index_beers_on_brewery_id"
+  end
+
+  create_table "breweries", force: :cascade do |t|
+    t.string "loc_id"
+    t.string "name"
+    t.string "streetAddress"
+    t.string "locality"
+    t.string "country"
+    t.string "region"
+    t.string "locationTypeDisplay"
+    t.string "isClosed"
+    t.string "yearOpened"
+    t.string "phone"
+    t.string "website"
+    t.string "hoursOfOperation"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "description"
+    t.string "icon"
+    t.string "medium"
+    t.string "large"
+    t.string "squareMedium"
+    t.string "squareLarge"
+    t.string "isMassOwned"
+    t.string "brandClassification"
+    t.string "isOrganic"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade do |t|
@@ -30,13 +75,5 @@ ActiveRecord::Schema.define(version: 20170623184101) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "locations", force: :cascade do |t|
-    t.string "loc_id"
-    t.string "name"
-    t.string "streetAddress"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_foreign_key "beers", "locations"
+  add_foreign_key "beers", "breweries"
 end
