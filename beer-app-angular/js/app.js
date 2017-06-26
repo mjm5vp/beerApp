@@ -1,6 +1,5 @@
 "use strict";
 
-
 angular
   .module("beerApp", [
     "ui.router",
@@ -18,7 +17,6 @@ angular
     "BeerFactory",
     BeerIndexControllerFunction
   ])
-
   .controller("BreweryShowController",[
     "BreweryFactory",
     "$stateParams",
@@ -29,6 +27,7 @@ angular
     "$stateParams",
     BeerShowControllerFunction
   ])
+  .controller("HomePageController",[HomePageControllerFunction])
 
 
   // .controller("BreweryNewController",[
@@ -50,8 +49,59 @@ angular
     BeerFactoryFunction
   ])
 
+  function HomePageControllerFunction(){
+    console.log("Am the homepage controller");
+    var messageBoard=false;
+    let initialNumberOfDrink = 0
+    this.numberOfStandardDrink=initialNumberOfDrink
+    this.Up = function (){
+      this.numberOfStandardDrink++
+    }
+    this.Down = function (){
+      this.numberOfStandardDrink--
+    }
+    this.recommend =function (){
+      // let bodyWeightInGrams= this.bodyWeightInPound*454
+      // // let alcholDose=this.numberOfStandardDrink*14
+      // let genderContant=this.gender
+      // let lossInTime=this.elapsedTime*0.015
+      // let BACPercentage= alcholDose*100/(bodyWeightInGrams*genderContant)
+      // let currentBACPercentage=BACPercentage-lossInTime
+      // this.BACPercentage=BACPercentage.toFixed(3)
+      // this.currentBACPercentage=currentBACPercentage.toFixed(3)
+      this.messageBoard = true;
+      let message= "Sorry, Nothing to say now."
+      this.message=message
+    }
+    this.calculate = function(){
+      this.messageBoard = true;
+      let bodyWeightInGrams= this.bodyWeightInPound*454
+      let alcholDose=this.numberOfStandardDrink*14
+      let genderContant=this.gender
+      let lossInTime=this.elapsedTime*0.015
+      let BACPercentage= alcholDose*100/(bodyWeightInGrams*genderContant)
+      let currentBACPercentage=BACPercentage-lossInTime
+      this.BACPercentage=BACPercentage.toFixed(3)
+      this.currentBACPercentage=currentBACPercentage.toFixed(3)
+        if ( currentBACPercentage<0.08){
+          let message= "you are safe to drive"
+          this.message=message
+        }
+        else {
+          let message= "you are not safe to drive, please use transport or call to your non-drunk friends"
+          this.message=message
+        }
+      }
+
+    }
 function RouterFunction($stateProvider){
   $stateProvider
+  .state("homePage", {
+    url: "/",
+    templateUrl: "ng-views/home-views/bac_calculator.html",
+    controller: "HomePageController",
+    controllerAs: "vm"
+  })
   .state("breweryIndex", {
     url: "/breweries",
     templateUrl: "ng-views/breweries/brewery-index.html",

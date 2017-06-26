@@ -1,0 +1,45 @@
+
+<h3>Body Alchol Content Calcullator <input type="checkbox"  ng-model="vm.details"></h3>
+<div ng-show="vm.details">
+  <p>Number of total Standard Drink:{{vm.numberOfStandardDrink}}
+    <button ng-click="vm.Up()" >UP</button>
+    <button ng-click="vm.Down()">Down</button>
+  <p>Body weight [pounds] :<input ng-model="vm.bodyWeightInPound" value="0"></p>
+
+  <label for="Gender">Gender:</label>
+  <input ng-model="vm.gender" type="radio" name="genderselect" ng-value="0.68" checked>Male
+  <input ng-model="vm.gender" type="radio" name="genderselect" ng-value="0.55">Female
+
+  </br>
+  <label for="elapsedTime">Elapsed Time [hrs]:</label>
+  <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="1" checked>1
+  <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="2">3
+  <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="3" checked>3
+  <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="4">4
+  <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="5" checked>5
+  <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="6">6
+
+  <button ng-click="vm.calculate()">Calculator</button>
+  <p ng-show="vm.messageBoard">The BAC total consumption is {{vm.BACPercentage}}, but conidering the elapsed time
+     it will be {{vm.currentBACPercentage}}</p>
+  <p ng-show="vm.messageBoard">As per this result, {{vm.message}}</p>
+</div>
+<h3>What should I drink? <input type="checkbox"  ng-model="vm.whatToDrink"></h3>
+<div ng-show="vm.whatToDrink">
+
+  <p>Body weight [pounds] :<input ng-model="vm.bodyWeightInPound" value="0"></p>
+  <label for="Gender">Gender:</label>
+  <input ng-model="vm.gender" type="radio" name="genderselect" ng-value="0.68" checked>Male
+  <input ng-model="vm.gender" type="radio" name="genderselect" ng-value="0.55">Female
+  </br>
+  <label for="elapsedTime">How many time you have[hrs]:</label>
+  <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="1" checked>1
+  <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="2">3
+  <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="3" checked>3
+  <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="4">4
+  <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="5" checked>5
+  <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="6">6
+
+  <button ng-click="vm.recommend()">Calculator</button>
+  <p ng-show="vm.messageBoard">As per this result, {{vm.message}}</p>
+</div>
