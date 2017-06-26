@@ -1,13 +1,19 @@
 Rails.application.routes.draw do
 
 
-  root to: "beers#beers"
+  # root to: "beers#beers"
+
+  get '/beers', to: "beers#beers"
+
+  get '/beers/:id', to: "beers#beers_show"
+
+  resources :beers
 
   resources :breweries do
     resources :beers
   end
 
-  resources :beers
+
 
 
 

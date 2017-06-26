@@ -1,0 +1,5 @@
+<h1>Brew Index</h1>
+
+<div data-ng-repeat="brewery in vm.breweries">
+  <p><a data-ui-sref="breweryShow({id: brewery.id})">{{brewery.name}} </a></p>
+</div>

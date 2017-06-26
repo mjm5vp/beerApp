@@ -17,4 +17,11 @@ class BeersController < ApplicationController
     @all_beers = Beer.all
     render json: @all_beers.to_json, status: :ok
   end
+
+  def beers_show
+    @beer = Beer.find(params[:id])
+
+    render json: @beer.to_json, status: :ok
+
+  end
 end
