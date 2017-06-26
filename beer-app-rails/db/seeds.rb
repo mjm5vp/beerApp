@@ -23,6 +23,20 @@ all_beers = []
   for brewery in breweriesResponse do
     all_breweries.push(brewery)
 
+    if brewery["brewery"]["images"]
+      icon = brewery["brewery"]["images"]["icon"]
+      medium = brewery["brewery"]["images"]["medium"]
+      large = brewery["brewery"]["images"]["large"]
+      squareMedium = brewery["brewery"]["images"]["squareMedium"]
+      squareLarge = brewery["brewery"]["images"]["squareLarge"]
+    else
+      icon = "http://placecage.com/400/400"
+      medium = "http://placecage.com/400/400"
+      large = "http://placecage.com/400/400"
+      squareMedium = "http://placecage.com/400/400"
+      squareLarge = "http://placecage.com/400/400"
+    end
+
     this_brewery = Brewery.create!(loc_id: brewery["id"],
     name: brewery["brewery"]["name"],
     streetAddress: brewery["streetAddress"],
@@ -38,14 +52,15 @@ all_beers = []
     latitude: brewery["latitude"],
     longitude: brewery["longitude"],
     description: brewery["brewery"]["description"],
-    icon: brewery["brewery"]["icon"],
-    medium: brewery["brewery"]["medium"],
-    large: brewery["brewery"]["large"],
-    squareMedium: brewery["brewery"]["squareMedium"],
-    squareLarge: brewery["brewery"]["squareLarge"],
+    isOrganic: brewery["brewery"]["isOrganic"],
+    icon: icon,
+    medium: medium,
+    large: large,
+    squareMedium: squareMedium,
+    squareLarge: squareLarge,
     isMassOwned: brewery["brewery"]["isMassOwned"],
-    brandClassification: brewery["brewery"]["brandClassification"],
-    isOrganic: brewery["brewery"]["isOrganic"]
+    brandClassification: brewery["brewery"]["brandClassification"]
+
     # squareLarge: brewery["brewery"]["squareLarge"],
     # squareLarge: brewery["brewery"]["squareLarge"],
     # squareLarge: brewery["brewery"]["squareLarge"],
