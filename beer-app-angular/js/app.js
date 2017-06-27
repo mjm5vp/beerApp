@@ -180,7 +180,7 @@ function RouterFunction($stateProvider){
     url: "/comments/:id",
     templateUrl: "ng-views/comment/comment-show.html",
     controller: "CommentShowController",
-
+})
   .state("brewMood", {
     url: "/brewmood",
     templateUrl: "ng-views/home-views/brew-mood.html",
@@ -249,7 +249,7 @@ function BreweryShowControllerFunction(BreweryFactory, $stateParams){
 
 function BeerShowControllerFunction(BeerFactory, BreweryFactory, $stateParams){
   let self = this
-<<<<<<< HEAD
+
   BeerFactory.get({id: $stateParams.id}).$promise.then(function(data){
     // console.log(this.beer)
     self.beer = data
