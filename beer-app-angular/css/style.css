@@ -16,8 +16,6 @@ body h1{
   margin: 20px;
   background-color: white;
   width: 60%;
-  top: 150px;
-  left: 50px;
   padding: 10px;
   border: 1px solid orange;
   text-align: center;
@@ -47,6 +45,14 @@ body h1{
 
 .content p{
   font-family: Arial, sans-serif;
+}
+
+.mapContainer{
+  float: right;
+  width: 30%;
+  margin: 20px;
+  border: 1px solid orange;
+  border-radius: 10px;
 }
 
 aside{
