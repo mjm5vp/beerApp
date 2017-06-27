@@ -99,3 +99,9 @@ footer{
 .section1{
   width:800px;
 }
+
+.test{
+  height: 200px;
+  width: 200px;
+  background-color: red;
+}
