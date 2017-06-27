@@ -23,6 +23,11 @@ angular
     "$stateParams",
     BreweryShowControllerFunction
   ])
+  .controller("BeerShowController",[
+    "BeerFactory",
+    "$stateParams",
+    BeerShowControllerFunction
+  ])
   .controller("BeerPercentController",[
     "BeerFactory",
 

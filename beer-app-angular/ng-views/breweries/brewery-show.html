@@ -1,39 +1,40 @@
+<div class="breweryContainer">
+    <div class="content">
+      <div class="content_head">
+        <h1>{{vm.brewery.name}}</h1>
+      </div>
+        <img src="{{vm.brewery.large}}"></img>
+        <p>Address: {{vm.brewery.streetAddress}}, {{vm.brewery.locality}}, {{vm.brewery.region}}</p>
+        <p>Phone: {{vm.brewery.phone}}</p>
+        <p>Website: {{vm.brewery.website}}</p>
+        <p>{{vm.brewery.hoursOfOperation}}</p>
+        <h2>About</h2>
+        <p>{{vm.brewery.description}}</p>
 
-<div class="content">
-  <div class="content_head">
-    <h1>{{vm.brewery.name}}</h1>
-  </div>
-    <img src="{{vm.brewery.large}}"></img>
-    <p>Address: {{vm.brewery.streetAddress}}, {{vm.brewery.locality}}, {{vm.brewery.region}}</p>
-    <p>Phone: {{vm.brewery.phone}}</p>
-    <p>Website: {{vm.brewery.website}}</p>
-    <p>{{vm.brewery.hoursOfOperation}}</p>
-    <h2>About</h2>
-    <p>{{vm.brewery.description}}</p>
 
+        <h2>Brewery Stats</h2>
+        <p>Brewery Type: {{vm.brewery.brandClassification}}</p>
+        <p>Year Established: {{vm.brewery.yearOpened}}</p>
+        <p>Organic: {{vm.brewery.isOrganic}}</p>
+        <p>Mass Owned: {{vm.brewery.isMassOwned}}</p>
+    </div>
 
-    <h2>Brewery Stats</h2>
-    <p>Brewery Type: {{vm.brewery.brandClassification}}</p>
-    <p>Year Established: {{vm.brewery.yearOpened}}</p>
-    <p>Organic: {{vm.brewery.isOrganic}}</p>
-    <p>Mass Owned: {{vm.brewery.isMassOwned}}</p>
+    <!-- <div class="beerGallery">
+      <h2>Beers</h2>
+      Show all beers this brewery produces / SLIDER?
+      <!-- <div ng-repeat="beer in vm.beers">
+        <p>{{vm.beer.name}} | {{vm.beer.type}}</p>
+      </div>
+    </div>
+     -->
+
+    <aside class="userComments">
+      <h1>Comments</h1>
+      <p>comments go here</p>
+      <p>comments go here</p>
+      <p>comments go here</p>
+      <p>comments go here</p>
+      <p>comments go here</p>
+
+    </aside>
 </div>
-
-<!-- <div class="beerGallery">
-  <h2>Beers</h2>
-  Show all beers this brewery produces / SLIDER?
-  <!-- <div ng-repeat="beer in vm.beers">
-    <p>{{vm.beer.name}} | {{vm.beer.type}}</p>
-  </div>
-</div>
- -->
-
-<aside class="userComments">
-  <h1>Comments</h1>
-  <p>comments go here</p>
-  <p>comments go here</p>
-  <p>comments go here</p>
-  <p>comments go here</p>
-  <p>comments go here</p>
-
-</aside>
