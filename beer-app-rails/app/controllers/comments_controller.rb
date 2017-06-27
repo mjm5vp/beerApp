@@ -1,32 +1,58 @@
 class CommentsController < ApplicationController
   def index
     @comments=Comment.all
-  end
-
-  def show
-    @comment=Comment.find(paraams[:id])
+    respond_to do |format|
+      format.html  {render :index }
+      format.json  {render json: @comments }
+    end
   end
   def new
     @comment=Comment.new
   end
-
   def create
-    @comment=Comment.create!(comment_params)
-    redirect_to :root
+    # @comment=Comment.create!(comment_params)
+    # redirect_to comment_path(@comment)
+    @comment = Comment.new(comment_params)
+      respond_to do |format|
+        if @comment.save!
+          format.html { redirect_to comment_path(@comment), notice: 'Comment was successfully created.' }
+          format.json { render json: @comment, status: :created }
+        else
+          format.html { render :new }
+          format.json { render json: @comment.errors, status: :unprocessable_entity }
+        end
+      end
+  end
+  def show
+    @comment=Comment.find(params[:id])
+    respond_to do |format|
+      format.html { render :show}
+      format.json { render json: @comment}
+  end
   end
   def edit
-    @comment=Comment.find(paraams[:id])
+    @comment=Comment.find(params[:id])
   end
   def update
-    @comment=Comment.find(paraams[:id])
-    @comment.update(comment_params)
-    redirect_to :root
+    @comment=Comment.find(params[:id])
+    # @comment.update(comment_params)
+    # redirect_to comment_path(@comment)
+
+    respond_to do |format|
+    if @comment.update!(comment_params)
+      format.html { redirect_to comment_path(@comment), notice: 'Comment was successfully updated.' }
+      format.json { render json: @comment }
+    else
+      format.html { render :new }
+      format.json { render json: @comment.errors, status: :unprocessable_entity }
+    end
+  end
   end
 
-  def desstroy
-    @comment=Comment.find(paraams[:id])
-    @comment.desstroy
-    redirect_to :root
+  def destroy
+    @comment=Comment.find(params[:id])
+    @comment.destroy
+    redirect_to comments_path
   end
   private
   def comment_params

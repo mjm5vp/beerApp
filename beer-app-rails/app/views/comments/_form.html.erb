@@ -1,4 +1,4 @@
-<%= form_for :comment do |f| %>
+<%= form_for @comment do |f| %>
   <p>
     <%= f.label :title %><br>
     <%= f.text_field :title %>
@@ -13,3 +13,4 @@
     <%= f.submit %>
   </p>
 <%end%>
+<%=link_to "Cancel",comments_path%>

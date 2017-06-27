@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/beers/:id', to: "beers#beers_show"
 
   resources :beers
+  resources :comments
 
   resources :breweries do
     resources :beers

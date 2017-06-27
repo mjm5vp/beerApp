@@ -1,1 +1,5 @@
 <h1>Comment show </h1>
+<%=link_to "Back",comments_path%>
+<p><%=@comment.title%></p><p><%=@comment.body%></p>
+<%=link_to "Edit",edit_comment_path(@comment)%>
+<%=link_to "Delete",comment_path(@comment), method: :delete   %>
