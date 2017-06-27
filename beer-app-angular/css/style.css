@@ -31,7 +31,7 @@ body h1{
   display: block;
   padding: 10px;
   margin: auto;
-  width: 90%;
+  height: 200px;
 }
 
 .content h1{
@@ -89,6 +89,7 @@ footer{
   width: 100%;
   bottom: 0;
 }
+
 #bac{
   display: flex;
   flex-direction: row;
@@ -104,4 +105,8 @@ footer{
   height: 200px;
   width: 200px;
   background-color: red;
+}
+
+@media screen and (max-width: 600px) {
+
 }
