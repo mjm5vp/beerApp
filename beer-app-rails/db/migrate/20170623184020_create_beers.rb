@@ -11,7 +11,6 @@ class CreateBeers < ActiveRecord::Migration[5.1]
       t.integer :glasswareId
       t.string :glass
       t.integer :srmId
-      t.string :availableId
       t.string :available
       t.integer :styleId
       t.string :isOrganic
@@ -25,6 +24,8 @@ class CreateBeers < ActiveRecord::Migration[5.1]
       t.string :beerVariation
       t.string :category
       t.string :style_name
+      t.string :srm_name
+      t.string :srm_hex
 
 
 

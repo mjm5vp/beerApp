@@ -87,6 +87,26 @@ all_beers = []
           style_name = nil
         end
 
+        if beer["glass"]
+          glass = beer["glass"]["name"]
+        else
+          glass = nil
+        end
+
+        if beer["available"]
+          available = beer["available"]["name"]
+        else
+          available = nil
+        end
+
+        if beer["srm"]
+          srm_name = beer["srm"]["name"]
+          srm_hex = beer["srm"]["hex"]
+        else
+          srm_name = nil
+          srm_hex = nil
+        end
+
         puts "Beer: #{beer["name"]}"
         this_beer = Beer.create!(
         name: beer["name"],
@@ -94,10 +114,10 @@ all_beers = []
         abv: beer["abv"],
         ibu: beer["ibu"],
         glasswareId: beer["glasswareId"],
-        glass: beer["glass"],
-        srmId: beer["srmId"],
-        availableId: beer["availableId"],
-        available: beer["available"],
+        glass: glass,
+        srm_name: srm_name,
+        srm_hex: srm_hex,
+        available: available,
         styleId: beer["styleId"],
         isOrganic: beer["isOrganic"],
         hasLabels: beer["hasLabels"],

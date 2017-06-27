@@ -23,7 +23,6 @@ ActiveRecord::Schema.define(version: 20170623184101) do
     t.integer "glasswareId"
     t.string "glass"
     t.integer "srmId"
-    t.string "availableId"
     t.string "available"
     t.integer "styleId"
     t.string "isOrganic"
@@ -37,6 +36,8 @@ ActiveRecord::Schema.define(version: 20170623184101) do
     t.string "beerVariation"
     t.string "category"
     t.string "style_name"
+    t.string "srm_name"
+    t.string "srm_hex"
     t.bigint "brewery_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
