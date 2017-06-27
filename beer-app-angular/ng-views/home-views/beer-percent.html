@@ -1,9 +1,14 @@
-<h1>Beer Percent</h1>
+<!-- <h1>Beer Percent</h1> -->
 
+<div class="input-container">
+  <span class="input-label">ABV%: </span><input id="abvInput" type="number"  ng-model="vm.abvMod" value="8" step="0.1" >
+</div>
 
-  ABV: <input id="abvInput" type="number"  ng-model="vm.abvMod" value="8" step="0.1" >
+<div class="beers-container">
 
-  <div data-ng-repeat="beer in vm.beers| where:{abv: vm.abvMod}">
+  <div class="beer-container" data-ng-repeat="beer in vm.beers| where:{abv: vm.abvMod}">
     <p><a data-ui-sref="beerShow({id: beer.id})">{{beer.name}} </a></p>
-    <p>{{beer.abv}}</p>
+    <p class="style_name">{{beer.style_name}}</p>
   </div>
+
+</div>

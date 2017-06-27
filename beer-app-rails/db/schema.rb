@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 20170623184101) do
     t.string "servingTemperatureDisplay"
     t.integer "beerVariationId"
     t.string "beerVariation"
+    t.string "category"
+    t.string "style_name"
     t.bigint "brewery_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

@@ -23,6 +23,8 @@ class CreateBeers < ActiveRecord::Migration[5.1]
       t.string :servingTemperatureDisplay
       t.integer :beerVariationId
       t.string :beerVariation
+      t.string :category
+      t.string :style_name
 
 
 

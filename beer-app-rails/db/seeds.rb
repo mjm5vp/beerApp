@@ -73,9 +73,20 @@ all_beers = []
     breweryBeersUrl = "http://api.brewerydb.com/v2/brewery/#{breweryId}/beers/?key=9cbedc703b22c38506ed1375ea350381"
     breweriesBeersResponse = HTTParty.get(breweryBeersUrl).parsed_response["data"]
 
+
+
     if breweriesBeersResponse
       for beer in breweriesBeersResponse do
         all_beers.push(beer)
+
+        if beer["style"]
+          category = beer["style"]["category"]["name"]
+          style_name = beer["style"]["shortName"]
+        else
+          category = nil
+          style_name = nil
+        end
+
         puts "Beer: #{beer["name"]}"
         this_beer = Beer.create!(
         name: beer["name"],
@@ -97,6 +108,8 @@ all_beers = []
         servingTemperatureDisplay: beer["servingTemperatureDisplay"],
         beerVariationId: beer["beerVariationId"],
         beerVariation: beer["beerVariation"],
+        category: category,
+        style_name: style_name,
 
         brewery: this_brewery
         )

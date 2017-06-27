@@ -1,7 +1,7 @@
 
 
 h1{
-  color: red;
+
 }
 
 #abvInput {
@@ -11,9 +11,11 @@ h1{
   padding: 0 8px;
   width: 200px;
   text-align: center;
+  border: 2px solid black;
+  margin: 5px;
 	}
 
-  input[type=number]::-webkit-inner-spin-button {
+  #abvInput::-webkit-inner-spin-button {
    -webkit-appearance: none;
     background: #eee url('http://i.stack.imgur.com/YYySO.png') no-repeat 50% 50%;
    cursor:pointer;
@@ -24,10 +26,41 @@ h1{
    position:relative;
    opacity: 1;
 
-   background: #eee url('http://i.stack.imgur.com/YYySO.png') no-repeat 50% 50%;
    width: 50px;
    height: 50px;
    padding: 4px;
    position: relative;
    right: 4px;
+}
+
+
+.input-container{
+  display: flex;
+  justify-content: center;
+}
+
+.input-label{
+  font-size: 20px;
+  margin: 30px 0 0 0;
+}
+
+.beers-container{
+  width: cover;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.beer-container{
+  font-family: 'Righteous', sans-serif;
+  margin: 5px;
+  height: 200px;
+  width: 100px;
+  border: 2px solid black;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.style_name{
+  margin-bottom: 20px;
 }
