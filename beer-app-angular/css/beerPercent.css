@@ -1,0 +1,33 @@
+
+
+h1{
+  color: red;
+}
+
+#abvInput {
+  height: 100px;
+  line-height: 100px;
+  font-size: 50px;
+  padding: 0 8px;
+  width: 200px;
+  text-align: center;
+	}
+
+  input[type=number]::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+    background: #eee url('http://i.stack.imgur.com/YYySO.png') no-repeat 50% 50%;
+   cursor:pointer;
+   display:block;
+   width:8px;
+   color: #333;
+   text-align:center;
+   position:relative;
+   opacity: 1;
+
+   background: #eee url('http://i.stack.imgur.com/YYySO.png') no-repeat 50% 50%;
+   width: 50px;
+   height: 50px;
+   padding: 4px;
+   position: relative;
+   right: 4px;
+}

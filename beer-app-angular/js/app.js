@@ -3,7 +3,8 @@
 angular
   .module("beerApp", [
     "ui.router",
-    "ngResource"
+    "ngResource",
+    'angular.filter'
   ])
   .config([
     "$stateProvider",
@@ -22,12 +23,14 @@ angular
     "$stateParams",
     BreweryShowControllerFunction
   ])
-  .controller("BeerShowController",[
+  .controller("BeerPercentController",[
     "BeerFactory",
-    "$stateParams",
-    BeerShowControllerFunction
+
+    BeerPercentControllerFunction
   ])
+
   .controller("HomePageController",[HomePageControllerFunction])
+
 
 
   // .controller("BreweryNewController",[
@@ -126,6 +129,12 @@ function RouterFunction($stateProvider){
     controller: "BeerShowController",
     controllerAs: "vm"
   })
+  .state("beerPercent", {
+    url: "/beerpercent",
+    templateUrl: "ng-views/home-views/beer-percent.html",
+    controller: "BeerPercentController",
+    controllerAs: "vm"
+  })
 
   // .state("breweryNew",{
   //   url: "/breweries/new",
@@ -146,9 +155,7 @@ function BreweryIndexControllerFunction( BreweryFactory ){
 }
 
 function BeerIndexControllerFunction( BeerFactory ){
-  console.log("controller working")
   this.beers = BeerFactory.query()
-  console.log("beers: " + this.beers)
 }
 
 function BreweryShowControllerFunction(BreweryFactory, $stateParams){
@@ -157,6 +164,27 @@ function BreweryShowControllerFunction(BreweryFactory, $stateParams){
 
 function BeerShowControllerFunction(BeerFactory, $stateParams){
   this.beer = BeerFactory.get({id: $stateParams.id});
+}
+
+function BeerPercentControllerFunction(BeerFactory){
+
+  var abv = $("#abvInput")
+
+
+  this.beers = BeerFactory.query()
+  this.abvMod = 8
+
+
+  abv.on("change", function(){
+    var currentVal = abv.val()
+    if (currentVal > 10){
+      console.log("over 10")
+    }
+  })
+
+
+
+
 }
 
 // function BreweryNewControllerFunction(GrumbleFactory){

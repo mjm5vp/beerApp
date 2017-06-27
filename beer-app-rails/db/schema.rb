@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20170623184101) do
   create_table "beers", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.string "abv"
+    t.float "abv"
     t.string "ibu"
     t.integer "glasswareId"
     t.string "glass"
