@@ -1,0 +1,39 @@
+body{
+  background-color: #F6ED93
+}
+
+h1{
+  font-family: 'Righteous', sans-serif;
+  text-align: center;
+  font-size: 40px;
+}
+
+.header img{
+  height: 300px;
+  width: 100%;
+}
+
+.content{
+  position: absolute;
+  background-color: white;
+  width: 60%;
+  position: absolute;
+  top: 150px;
+  left: 50px;
+  padding: 10px;
+  border: 1px solid orange;
+  text-align: center;
+}
+
+.content_head{
+  background-color: #FBB34C;
+}
+
+.content img{
+  display: block;
+    margin: auto;
+}
+
+.content p{
+  font-family: Arial, sans-serif;
+}
