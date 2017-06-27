@@ -2,6 +2,7 @@
 
 angular
   .module("beerApp", [
+    "ngMap",
     "ui.router",
     "ngResource",
     'angular.filter'
