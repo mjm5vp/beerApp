@@ -61,6 +61,45 @@ h1{
   text-align: center;
 }
 
+.beer-container-index{
+  font-family: 'Righteous', sans-serif;
+  margin: 5px;
+  height: 100px;
+  width: 150px;
+  border: 2px solid black;
+  border-radius: 5px;
+  text-align: center;
+  /*position: relative;*/
+}
+
+.brewery-container-index{
+  font-family: 'Righteous', sans-serif;
+  margin: 5px;
+  height: 150px;
+  width: 150px;
+  border: 2px solid black;
+  border-radius: 5px;
+  text-align: center;
+  position: relative;
+
+}
+
+.icon-image{
+  height: 50px;
+  width: 50px;
+  position: absolute;
+  bottom: 0;
+  transform: translate(-50%, -50%);
+}
+
+.category{
+  /*position: absolute;*/
+  bottom: 0;
+  left: 0;
+  font-size: 9px;
+  /*transform: translate(-50%, -50%);*/
+}
+
 .style_name{
   margin-bottom: 20px;
 }

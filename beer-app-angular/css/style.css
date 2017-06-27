@@ -90,6 +90,22 @@ footer{
   bottom: 0;
 }
 
+#bac{
+  display: flex;
+  flex-direction: row;
+}
+.section{
+  width:1200px;
+}
+.section1{
+  width:800px;
+}
+
+.test{
+  height: 200px;
+  width: 200px;
+  background-color: red;
+}
 
 @media screen and (max-width: 600px) {
 
