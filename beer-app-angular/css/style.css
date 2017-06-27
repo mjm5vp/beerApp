@@ -7,18 +7,15 @@ body h1{
 }
 
 .header img{
-  top: 100px;
   height: 300px;
   width: 100%;
 }
 
 .content{
-  position: absolute;
+  float: left;
+  margin: 20px;
   background-color: white;
   width: 60%;
-  position: absolute;
-  top: 150px;
-  left: 50px;
   padding: 10px;
   border: 1px solid orange;
   text-align: center;
@@ -50,12 +47,18 @@ body h1{
   font-family: Arial, sans-serif;
 }
 
-aside{
-  position: absolute;
+.mapContainer{
   float: right;
-  top: 250px;
   width: 30%;
-  right: 50px;
+  margin: 20px;
+  border: 1px solid orange;
+  border-radius: 10px;
+}
+
+aside{
+  float: right;
+  width: 30%;
+  margin: 20px;
   background-color: lightgrey;
   padding: 10px;
   border: 1px solid orange;
@@ -69,6 +72,7 @@ aside h1{
 }
 
 .beerContent{
+  display: block;
   margin: auto;
   background-color: white;
   width: 50%;
@@ -79,8 +83,21 @@ aside h1{
 }
 
 footer{
+  height: 50px;
   text-align: center;
   margin: 10px;
+  width: 100%;
+  bottom: 0;
+}
+#bac{
+  display: flex;
+  flex-direction: row;
+}
+.section{
+  width:1200px;
+}
+.section1{
+  width:800px;
 }
 
 .test{

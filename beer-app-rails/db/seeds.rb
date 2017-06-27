@@ -30,11 +30,11 @@ all_beers = []
       squareMedium = brewery["brewery"]["images"]["squareMedium"]
       squareLarge = brewery["brewery"]["images"]["squareLarge"]
     else
-      icon = "http://placecage.com/400/400"
-      medium = "http://placecage.com/400/400"
-      large = "http://placecage.com/400/400"
-      squareMedium = "http://placecage.com/400/400"
-      squareLarge = "http://placecage.com/400/400"
+      icon = "http://silhouettesfree.com/holiday-and-festive/saint-patrick-s-day/beer-silhouette-image-2.png"
+      medium = "http://silhouettesfree.com/holiday-and-festive/saint-patrick-s-day/beer-silhouette-image-2.png"
+      large = "http://silhouettesfree.com/holiday-and-festive/saint-patrick-s-day/beer-silhouette-image-2.png"
+      squareMedium = "http://silhouettesfree.com/holiday-and-festive/saint-patrick-s-day/beer-silhouette-image-2.png"
+      squareLarge = "http://silhouettesfree.com/holiday-and-festive/saint-patrick-s-day/beer-silhouette-image-2.png"
     end
 
     this_brewery = Brewery.create!(loc_id: brewery["id"],
@@ -181,3 +181,9 @@ puts "HTTParty Location Done"
 
 puts all_breweries.length
 puts all_beers.length
+
+
+# Sample seed data for comment part
+aaa=Comment.create(title:"aaa", body:"aaaaaaaaaaaaaaaaa")
+bbb=Comment.create(title:"bbb", body:"bbbbbbbbbbbbbbbbbbbbbb")
+ccc=Comment.create(title:"bbb", body:"cccccccccccccccccccc")

@@ -1,2 +1,6 @@
-<h1>Comments#index</h1>
-<p>Find me in app/views/comments/index.html.erb</p>
+<h1>Comment Index page</h1>
+<p><%=link_to "New",new_comment_path%></p>
+
+<%@comments.each do |comment|%>
+<p><%=link_to comment.title,comment_path(comment)%> </p>
+<%end%>

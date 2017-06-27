@@ -2,6 +2,7 @@
 
 angular
   .module("beerApp", [
+    "ngMap",
     "ui.router",
     "ngResource",
     'angular.filter'
@@ -64,6 +65,25 @@ angular
 
   function HomePageControllerFunction(){
     console.log("Am the homepage controller");
+    //Note: This data will be replaced with the real data
+    var cities = [
+      {cityid: 1, name: 'DC', countryId: 1},
+      {cityid: 2, name: 'Maryland', countryId: 1},
+      {cityid: 3, name: 'Virginia', countryId: 1},
+      {cityid: 5, name: 'Hamilton', countryId: 2},
+      {cityid: 6, name: 'Toronto', countryId: 2},
+      {cityid: 7, name: 'Addis Ababa', countryId: 3}
+    ];
+    var countries= [
+      {countryId: 1, name: 'USA'},
+      {countryId: 2, name: 'Canada'},
+      {countryId: 3, name: 'Ethiopia'}
+    ]
+    this.countries = countries
+    this.cities=cities
+
+
+
     var messageBoard=false;
     let initialNumberOfDrink = 0
     this.numberOfStandardDrink=initialNumberOfDrink
@@ -74,17 +94,17 @@ angular
       this.numberOfStandardDrink--
     }
     this.recommend =function (){
-      // let bodyWeightInGrams= this.bodyWeightInPound*454
-      // // let alcholDose=this.numberOfStandardDrink*14
-      // let genderContant=this.gender
-      // let lossInTime=this.elapsedTime*0.015
-      // let BACPercentage= alcholDose*100/(bodyWeightInGrams*genderContant)
-      // let currentBACPercentage=BACPercentage-lossInTime
-      // this.BACPercentage=BACPercentage.toFixed(3)
-      // this.currentBACPercentage=currentBACPercentage.toFixed(3)
       this.messageBoard = true;
-      let message= "Sorry, Nothing to say now."
+      // this.detail=false;
       this.message=message
+      let bodyWeightInGrams= this.bodyWeightInPound*454
+      let genderContant=this.gender
+      let lossInTime=this.elapsedTime*0.015
+      let maximumAllowedBACPercentage= 0.08 + lossInTime
+      let alcholDose= maximumAllowedBACPercentage*bodyWeightInGrams*genderContant/100
+      let numberOfStandardDrink=alcholDose/14
+      this.allowednumberOfStandardDrink=numberOfStandardDrink.toFixed(1)
+      let message= "Sorry, Nothing to say now."
     }
     this.calculate = function(){
       this.messageBoard = true;
@@ -205,6 +225,7 @@ function BreweryShowControllerFunction(BreweryFactory, $stateParams){
 
 function BeerShowControllerFunction(BeerFactory, BreweryFactory, $stateParams){
   let self = this
+<<<<<<< HEAD
   BeerFactory.get({id: $stateParams.id}).$promise.then(function(data){
     // console.log(this.beer)
     self.beer = data
@@ -217,9 +238,7 @@ function BeerShowControllerFunction(BeerFactory, BreweryFactory, $stateParams){
   })
   })
 
-
 }
-
 function BeerPercentControllerFunction(BeerFactory){
   var abv = $("#abvInput")
   this.beers = BeerFactory.query()
