@@ -4,8 +4,7 @@ angular
   .module("beerApp", [
     "ngMap",
     "ui.router",
-    "ngResource",
-    'angular.filter'
+    "ngResource"
   ])
   .config([
     "$stateProvider",
@@ -179,14 +178,14 @@ function RouterFunction($stateProvider){
   .state("commentShow", {
     url: "/comments/:id",
     templateUrl: "ng-views/comment/comment-show.html",
-    controller: "CommentShowController",
-
+    controller: "CommentShowController"
+}
   .state("brewMood", {
     url: "/brewmood",
     templateUrl: "ng-views/home-views/brew-mood.html",
     controller: "BrewMoodController",
     controllerAs: "vm"
-  })
+  }))
 
   // .state("breweryNew",{
   //   url: "/breweries/new",
@@ -249,7 +248,7 @@ function BreweryShowControllerFunction(BreweryFactory, $stateParams){
 
 function BeerShowControllerFunction(BeerFactory, BreweryFactory, $stateParams){
   let self = this
-<<<<<<< HEAD
+
   BeerFactory.get({id: $stateParams.id}).$promise.then(function(data){
     // console.log(this.beer)
     self.beer = data
@@ -259,10 +258,10 @@ function BeerShowControllerFunction(BeerFactory, BreweryFactory, $stateParams){
     console.log(brewery)
     self.brewery = brewdata
     console.log(self.brewery)
+    })
   })
-  })
-
 }
+
 function BeerPercentControllerFunction(BeerFactory){
   var abv = $("#abvInput")
   this.beers = BeerFactory.query()
