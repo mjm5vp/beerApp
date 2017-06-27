@@ -83,3 +83,13 @@ footer{
   width: 100%;
   bottom: 0;
 }
+#bac{
+  display: flex;
+  flex-direction: row;
+}
+.section{
+  width:1200px;
+}
+.section1{
+  width:800px;
+}
