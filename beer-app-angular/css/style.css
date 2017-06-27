@@ -78,3 +78,13 @@ footer{
   text-align: center;
   margin: 10px;
 }
+#bac{
+  display: flex;
+  flex-direction: row;
+}
+.section{
+  width:1200px;
+}
+.section1{
+  width:800px;
+}

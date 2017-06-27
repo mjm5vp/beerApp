@@ -148,3 +148,9 @@ puts "HTTParty Location Done"
 
 puts all_breweries.length
 puts all_beers.length
+
+
+# Sample seed data for comment part
+aaa=Comment.create(title:"aaa", body:"aaaaaaaaaaaaaaaaa")
+bbb=Comment.create(title:"bbb", body:"bbbbbbbbbbbbbbbbbbbbbb")
+ccc=Comment.create(title:"bbb", body:"cccccccccccccccccccc")
