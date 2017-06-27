@@ -178,8 +178,9 @@ function RouterFunction($stateProvider){
   .state("commentShow", {
     url: "/comments/:id",
     templateUrl: "ng-views/comment/comment-show.html",
-    controller: "CommentShowController"
-}
+    controller: "CommentShowController",
+})
+
   .state("brewMood", {
     url: "/brewmood",
     templateUrl: "ng-views/home-views/brew-mood.html",
