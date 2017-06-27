@@ -25,6 +25,7 @@ angular
   ])
   .controller("BeerShowController",[
     "BeerFactory",
+    "BreweryFactory",
     "$stateParams",
     BeerShowControllerFunction
   ])
@@ -167,10 +168,20 @@ function BreweryShowControllerFunction(BreweryFactory, $stateParams){
   this.brewery = BreweryFactory.get({id: $stateParams.id});
 }
 
-function BeerShowControllerFunction(BeerFactory, $stateParams){
-  this.beer = BeerFactory.get({id: $stateParams.id});
+function BeerShowControllerFunction(BeerFactory, BreweryFactory, $stateParams){
+  let self = this
+   BeerFactory.get({id: $stateParams.id}).$promise.then(function(data){
+     // console.log(this.beer)
+     self.beer = data
+     var brewId = data.brewery_id
+     var brewery = BreweryFactory.get({id: brewId}).$promise.then(function(brewdata){
+     console.log("brewId: " + brewId)
+     console.log(brewery)
+     self.brewery = brewdata
+     console.log(self.brewery)
+   })
+ })
 }
-
 function BeerPercentControllerFunction(BeerFactory){
 
   var abv = $("#abvInput")
