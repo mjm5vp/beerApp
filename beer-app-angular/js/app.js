@@ -186,7 +186,7 @@ function RouterFunction($stateProvider){
     templateUrl: "ng-views/home-views/brew-mood.html",
     controller: "BrewMoodController",
     controllerAs: "vm"
-  }))
+  })
 
   // .state("breweryNew",{
   //   url: "/breweries/new",
