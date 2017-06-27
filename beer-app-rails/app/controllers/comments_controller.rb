@@ -51,8 +51,17 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment=Comment.find(params[:id])
-    @comment.destroy
-    redirect_to comments_path
+    # @comment.destroy
+    # redirect_to comments_path
+    respond_to do |format|
+      if @comment.destroy!
+        format.html {redirect_to comments_path, notice: 'Comment was successfully deleted.'}
+        format.json {render json: @comments}
+      else
+        format.html { redirect_to comments_path, notice: 'Comment was not successfully deleted.' }
+        format.json { render json: @comments.errors, status: :unprocessable_entity }
+      end
+    end
   end
   private
   def comment_params
