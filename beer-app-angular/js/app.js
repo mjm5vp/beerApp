@@ -16,6 +16,7 @@ angular
   ])
   .controller("BeerIndexController", [
     "BeerFactory",
+    "BreweryFactory",
     BeerIndexControllerFunction
   ])
   .controller("BreweryShowController",[
@@ -23,10 +24,19 @@ angular
     "$stateParams",
     BreweryShowControllerFunction
   ])
+  .controller("BeerShowController",[
+    "BeerFactory",
+    "BreweryFactory",
+    "$stateParams",
+    BeerShowControllerFunction
+  ])
   .controller("BeerPercentController",[
     "BeerFactory",
-
     BeerPercentControllerFunction
+  ])
+  .controller("BrewMoodController",[
+    "BeerFactory",
+    BrewMoodControllerFunction
   ])
 
   .controller("HomePageController",[HomePageControllerFunction])
@@ -135,6 +145,12 @@ function RouterFunction($stateProvider){
     controller: "BeerPercentController",
     controllerAs: "vm"
   })
+  .state("brewMood", {
+    url: "/brewmood",
+    templateUrl: "ng-views/home-views/brew-mood.html",
+    controller: "BrewMoodController",
+    controllerAs: "vm"
+  })
 
   // .state("breweryNew",{
   //   url: "/breweries/new",
@@ -152,37 +168,91 @@ function RouterFunction($stateProvider){
 
 function BreweryIndexControllerFunction( BreweryFactory ){
   this.breweries = BreweryFactory.query();
+
+  // var allBrew = $(".breweries-contatiner")
+  // console.log(allBrew)
+  // // var htmlText = "<div data-ng-repeat='brewery in vm.breweries'><p><a data-ui-sref='breweryShow({id: brewery.id})''>{{brewery.name}} </a></p></div>"
+  // // var test = "<p>test<p>"
+  // // allBrew.append(test)
+  //
+  // var newDiv = $("<div></div>")
+  // console.log(newDiv)
+  // // newDiv.css('ng-repeat', 'brewery in vm.breweries')
+  // // newDiv.css()
+  // newDiv.addClass("test")
+  // console.log(newDiv.className)
+  // allBrew.append(newDiv)
+
+
+
 }
 
-function BeerIndexControllerFunction( BeerFactory ){
+function BeerIndexControllerFunction( BeerFactory, BreweryFactory ){
   this.beers = BeerFactory.query()
+  let self = this
+
+
+
+
+
+
+
 }
 
 function BreweryShowControllerFunction(BreweryFactory, $stateParams){
   this.brewery = BreweryFactory.get({id: $stateParams.id});
 }
 
-function BeerShowControllerFunction(BeerFactory, $stateParams){
-  this.beer = BeerFactory.get({id: $stateParams.id});
+function BeerShowControllerFunction(BeerFactory, BreweryFactory, $stateParams){
+  let self = this
+  BeerFactory.get({id: $stateParams.id}).$promise.then(function(data){
+    // console.log(this.beer)
+    self.beer = data
+    var brewId = data.brewery_id
+    var brewery = BreweryFactory.get({id: brewId}).$promise.then(function(brewdata){
+    console.log("brewId: " + brewId)
+    console.log(brewery)
+    self.brewery = brewdata
+    console.log(self.brewery)
+  })
+  })
+
+
 }
 
 function BeerPercentControllerFunction(BeerFactory){
-
   var abv = $("#abvInput")
-
-
   this.beers = BeerFactory.query()
   this.abvMod = 8
-
-
   abv.on("change", function(){
     var currentVal = abv.val()
     if (currentVal > 10){
       console.log("over 10")
     }
   })
+}
 
+function BrewMoodControllerFunction(BeerFactory){
+  console.log("test")
+  this.beers = BeerFactory.query()
 
+//   $("input:checkbox").on('click', function() {
+//   // in the handler, 'this' refers to the box clicked on
+//   var $box = $(this);
+//   if ($box.is(":checked")) {
+//     // the name of the box is retrieved using the .attr() method
+//     // as it is assumed and expected to be immutable
+//     var group = "input:checkbox[name='" + $box.attr("name") + "']";
+//     // the checked state of the group/box on the other hand will change
+//     // and the current value is retrieved using .prop() method
+//     $(group).prop("checked", false);
+//     $box.prop("checked", true);
+//   } else {
+//     $box.prop("checked", false);
+//   }
+// });
+
+// $scope.name = "John Doeeeee"
 
 
 }

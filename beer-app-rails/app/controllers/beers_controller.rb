@@ -11,7 +11,7 @@ class BeersController < ApplicationController
     @brewery = Brewery.find(params[:brewery_id])
     @beer = @brewery.beers.find(params[:id])
 
-    render json: @beer.to_json, status: :ok
+    render json: @beer.to_json(:include => :brewery)
   end
   def beers
     @all_beers = Beer.all
