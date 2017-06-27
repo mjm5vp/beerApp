@@ -30,12 +30,12 @@ angular
     "$stateParams",
     BeerShowControllerFunction
   ])
+  .controller("CommentIndexController",["CommentFactory",CommentIndexControllerFunction])
+  .controller("CommentShowController",["CommentFactory","$stateParams",CommentShowControllerFunction])
   .controller("BeerPercentController",[
     "BeerFactory",
-
     BeerPercentControllerFunction
   ])
-
   .controller("HomePageController",[HomePageControllerFunction])
 
 
@@ -58,6 +58,8 @@ angular
     "$resource",
     BeerFactoryFunction
   ])
+  .factory("CommentFactory",["$resource",
+  CommentFactoryFunction])
 
   function HomePageControllerFunction(){
     console.log("Am the homepage controller");
@@ -77,8 +79,6 @@ angular
     ]
     this.countries = countries
     this.cities=cities
-
-
 
     var messageBoard=false;
     let initialNumberOfDrink = 0
@@ -161,6 +161,18 @@ function RouterFunction($stateProvider){
     controller: "BeerPercentController",
     controllerAs: "vm"
   })
+  .state("commentIndex", {
+    url: "/comments",
+    templateUrl: "ng-views/comment/comment-index.html",
+    controller: "CommentIndexController",
+    controllerAs: "vm"
+  })
+  .state("commentShow", {
+    url: "/comments/:id",
+    templateUrl: "ng-views/comment/comment-show.html",
+    controller: "CommentShowController",
+    controllerAs: "vm"
+  })
 
   // .state("breweryNew",{
   //   url: "/breweries/new",
@@ -183,7 +195,15 @@ function BreweryIndexControllerFunction( BreweryFactory ){
 function BeerIndexControllerFunction( BeerFactory ){
   this.beers = BeerFactory.query()
 }
+function CommentIndexControllerFunction( CommentFactory ){
+  console.log("Am CommentIndexControllerFunction");
+  this.comments = CommentFactory.query();
+}
+function CommentShowControllerFunction(CommentFactory, $stateParams){
+  console.log("Am CommentShowControllerFunction");
 
+  this.comment = CommentFactory.get({id: $stateParams.id});
+}
 function BreweryShowControllerFunction(BreweryFactory, $stateParams){
   this.brewery = BreweryFactory.get({id: $stateParams.id});
 }
@@ -245,4 +265,7 @@ function BeerPercentControllerFunction(BeerFactory){
 
   function BeerFactoryFunction( $resource ){
     return $resource( "http://localhost:3000/beers/:id")
+  }
+  function CommentFactoryFunction($resource){
+    return $resource("http://localhost:3000/comments/:id")
   }
