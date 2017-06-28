@@ -11,6 +11,18 @@ body h1{
   width: 100%;
 }
 
+.logoHeader{
+  height: 10px;
+}
+.logoHeader h1{
+  position: relative;
+  top: -175px;
+  font-family: 'Righteous', sans-serif;
+  font-size: 100px;
+  color: black;
+  text-align: center;
+}
+
 .content{
   float: left;
   margin: 20px;
@@ -109,6 +121,11 @@ footer{
   height: 200px;
   width: 200px;
   background-color: red;
+}
+
+.indexBrew{
+  margin: auto;
+  text-align: center;
 }
 
 @media screen and (max-width: 600px) {

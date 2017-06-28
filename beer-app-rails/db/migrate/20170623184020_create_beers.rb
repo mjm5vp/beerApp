@@ -27,6 +27,20 @@ class CreateBeers < ActiveRecord::Migration[5.1]
       t.string :srm_name
       t.string :srm_hex
 
+      t.string :abv_strength
+      t.string :bitterness
+
+      t.string :brewery_name
+      t.string :icon
+      t.string :medium
+      t.string :large
+      t.string :squareMedium
+      t.string :squareLarge
+      t.string :brewery_website
+
+
+
+
 
 
       t.references :brewery, index: true, foreign_key: true

@@ -4,7 +4,8 @@ angular
   .module("beerApp", [
     "ngMap",
     "ui.router",
-    "ngResource"
+    "ngResource",
+    'angular.filter'
   ])
   .config([
     "$stateProvider",
@@ -42,6 +43,8 @@ angular
     "BeerFactory",
     BrewMoodControllerFunction
   ])
+  .filter('capitalizeFirst', capitalizeFirstFilter)
+
   .controller("HomePageController",[HomePageControllerFunction])
   // .controller("BreweryNewController",[
   //   "BreweryFactory",
@@ -175,6 +178,7 @@ function RouterFunction($stateProvider){
     templateUrl: "ng-views/comment/comment-show.html",
     controller: "CommentShowController",
 })
+
 .state("commentNew",{
   url: "/comments/new",
   templateUrl: "js/ng-views/comment/comment-new.html",
@@ -187,7 +191,6 @@ function RouterFunction($stateProvider){
   controller: "CommentEditController",
   controllerAs: "vm"
 })
-
   .state("brewMood", {
     url: "/brewmood",
     templateUrl: "ng-views/home-views/brew-mood.html",
@@ -212,6 +215,7 @@ function RouterFunction($stateProvider){
 function BreweryIndexControllerFunction( BreweryFactory ){
   this.breweries = BreweryFactory.query();
 
+
   // var allBrew = $(".breweries-contatiner")
   // console.log(allBrew)
   // // var htmlText = "<div data-ng-repeat='brewery in vm.breweries'><p><a data-ui-sref='breweryShow({id: brewery.id})''>{{brewery.name}} </a></p></div>"
@@ -225,6 +229,7 @@ function BreweryIndexControllerFunction( BreweryFactory ){
   // newDiv.addClass("test")
   // console.log(newDiv.className)
   // allBrew.append(newDiv)
+
 
 }
 
@@ -275,10 +280,10 @@ function BeerShowControllerFunction(BeerFactory, BreweryFactory, $stateParams){
     console.log(brewery)
     self.brewery = brewdata
     console.log(self.brewery)
+    })
   })
-  })
-
 }
+
 function BeerPercentControllerFunction(BeerFactory){
   var abv = $("#abvInput")
   this.beers = BeerFactory.query()
@@ -291,27 +296,81 @@ function BeerPercentControllerFunction(BeerFactory){
   })
 }
 
+function capitalizeFirstFilter() {
+  return function _doFilter(str) {
+    return str && (str.charAt(0).toUpperCase() + str.substring(1));
+  };
+}
+
 function BrewMoodControllerFunction(BeerFactory){
   console.log("test")
   this.beers = BeerFactory.query()
 
-//   $("input:checkbox").on('click', function() {
-//   // in the handler, 'this' refers to the box clicked on
-//   var $box = $(this);
-//   if ($box.is(":checked")) {
-//     // the name of the box is retrieved using the .attr() method
-//     // as it is assumed and expected to be immutable
-//     var group = "input:checkbox[name='" + $box.attr("name") + "']";
-//     // the checked state of the group/box on the other hand will change
-//     // and the current value is retrieved using .prop() method
-//     $(group).prop("checked", false);
-//     $box.prop("checked", true);
-//   } else {
-//     $box.prop("checked", false);
-//   }
-// });
+  // Variables - Private
+  var self = this;
 
-// $scope.name = "John Doeeeee"
+  // Variables - Public
+  self.filter = {};
+  self.models = {};
+  self.cats = [
+
+    {category: 'British Origin Ales', abv_strength: 'very low', glass: 'Flute', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
+    {category: 'North American Origin Ales', abv_strength: 'low', glass: 'Goblet', isOrganic: "N", servingTemperature: "cold", bitterness: 'low'},
+    {category: 'Hybrid/mixed Beer', abv_strength: 'medium', glass: 'Mug', isOrganic: "Y", servingTemperature: "cool", bitterness: 'medium'},
+    {category: 'Belgian And French Origin Ales', abv_strength: 'high', glass: 'Pilsner', isOrganic: "Y", servingTemperature: "very_cold", bitterness: 'high'},
+    {category: 'North American Lager', abv_strength: 'very high', glass: 'Pint', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very high'},
+    {category: 'German Origin Ales', abv_strength: 'high', glass: 'Snifter', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
+    {category: 'European-germanic Lager', abv_strength: 'high', glass: 'Stange', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
+    {category: 'Irish Origin Ales', abv_strength: 'high', glass: 'Tulip', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
+    {category: 'Other Lager', abv_strength: 'high', glass: 'Weizen', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
+    {category: 'International Styles', abv_strength: 'high', glass: 'Oversized Wine Glass', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
+    {category: 'International Ale Styles', abv_strength: 'high', glass: 'Willi', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
+    {category: 'Mead, Cider, & Perry', abv_strength: 'high', glass: 'Thistle', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
+    {category: 'Malternative Beverages', abv_strength: 'high', glass: 'Flute', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
+    {category: 'European-germanic Lager', abv_strength: 'high', glass: 'Flute', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
+    {category: 'Other Origin', abv_strength: 'high', glass: 'Flute', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
+  ];
+
+  self.catNames = ["Alcohol Strength", "Bitterness", "Category", "Glass Type", "Organic?", "Serving Temperature"]
+
+  // Functions - Public
+  self.filterByProperties = filterByProperties;
+  self.getValuesFor = getValuesFor;
+  // console.log("self.filter: " + self.filter)
+
+  // Functions - Definitions
+  function filterByProperties(wine) {
+    // console.log("self.filter" + self.filter)
+    // console.log("Object.keys(self.filter): " + Object.keys(self.filter))
+    var activeFilterProps = Object
+      .keys(self.filter)
+      .filter(function (prop) {
+        return !noFilter(self.filter[prop]);
+      });
+
+    // Use this snippet for matching with AND
+    return activeFilterProps.
+      every(function (prop) { return self.filter[prop][wine[prop]]; });
+    // Use this snippet for matching with OR
+    //return !activeFilterProps.length || activeFilterProps.
+    //  some(function (prop) { return self.filter[prop][wine[prop]]; });
+  }
+
+  function getValuesFor(prop) {
+    return (self.cats || []).
+      map(function (beer) { return beer[prop]; }).
+      filter(function (value, idx, arr) { return arr.indexOf(value) === idx; });
+  }
+
+  function noFilter(filterObj) {
+    return Object.
+      keys(filterObj).
+      every(function (key) {
+        // console.log("filterObj: " + filterObj[key])
+        return !filterObj[key];
+
+      });
+  }
 
 
 }
