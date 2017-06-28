@@ -249,7 +249,6 @@ function BreweryShowControllerFunction(BreweryFactory, $stateParams){
 
 function BeerShowControllerFunction(BeerFactory, BreweryFactory, $stateParams){
   let self = this
-
   BeerFactory.get({id: $stateParams.id}).$promise.then(function(data){
     // console.log(this.beer)
     self.beer = data
