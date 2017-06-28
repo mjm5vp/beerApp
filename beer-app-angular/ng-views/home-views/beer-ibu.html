@@ -1,0 +1,14 @@
+<!-- <h1>Beer Percent</h1> -->
+
+<div class="input-container">
+  <span class="input-label">IBU: </span><input id="abvInput" type="number"  ng-model="vm.ibuMod" value="20" step="1" >
+</div>
+
+<div class="beers-container">
+
+  <div class="beer-container" data-ng-repeat="beer in vm.beers| where:{ibu: vm.ibuMod}">
+    <p><a data-ui-sref="beerShow({id: beer.id})">{{beer.name}} </a></p>
+    <p class="style_name">{{beer.style_name}}</p>
+  </div>
+
+</div>
