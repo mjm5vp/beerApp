@@ -1,7 +1,13 @@
+
 <h1>Beer Index</h1>
 
 <p><input type="text" ng-model="filt.names" placeholder="Search Beers"></p>
 
+
+<div class="indexBrew">
+  <h1>Search Beers</h1>
+  <p><input type="text" ng-model="filt.names"></p>
+</div>
 
 <div class="beers-container">
   <div class="beer-container-index" data-ng-repeat="beer in vm.beers | filter: filt.names">

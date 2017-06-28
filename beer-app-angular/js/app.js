@@ -6,7 +6,6 @@ angular
     "ui.router",
     "ngResource",
     'angular.filter'
-
   ])
   .config([
     "$stateProvider",
@@ -183,6 +182,7 @@ function RouterFunction($stateProvider){
     templateUrl: "ng-views/comment/comment-show.html",
     controller: "CommentShowController",
 })
+
   .state("brewMood", {
     url: "/brewmood",
     templateUrl: "ng-views/home-views/brew-mood.html",
@@ -206,22 +206,6 @@ function RouterFunction($stateProvider){
 
 function BreweryIndexControllerFunction( BreweryFactory ){
   this.breweries = BreweryFactory.query();
-
-  // var allBrew = $(".breweries-contatiner")
-  // console.log(allBrew)
-  // // var htmlText = "<div data-ng-repeat='brewery in vm.breweries'><p><a data-ui-sref='breweryShow({id: brewery.id})''>{{brewery.name}} </a></p></div>"
-  // // var test = "<p>test<p>"
-  // // allBrew.append(test)
-  //
-  // var newDiv = $("<div></div>")
-  // console.log(newDiv)
-  // // newDiv.css('ng-repeat', 'brewery in vm.breweries')
-  // // newDiv.css()
-  // newDiv.addClass("test")
-  // console.log(newDiv.className)
-  // allBrew.append(newDiv)
-
-
 
 }
 
@@ -251,7 +235,6 @@ function BreweryShowControllerFunction(BreweryFactory, $stateParams){
 
 function BeerShowControllerFunction(BeerFactory, BreweryFactory, $stateParams){
   let self = this
-
   BeerFactory.get({id: $stateParams.id}).$promise.then(function(data){
     // console.log(this.beer)
     self.beer = data
@@ -261,10 +244,10 @@ function BeerShowControllerFunction(BeerFactory, BreweryFactory, $stateParams){
     console.log(brewery)
     self.brewery = brewdata
     console.log(self.brewery)
+    })
   })
-  })
-
 }
+
 function BeerPercentControllerFunction(BeerFactory){
   var abv = $("#abvInput")
   this.beers = BeerFactory.query()
@@ -293,7 +276,7 @@ function BrewMoodControllerFunction(BeerFactory){
   // Variables - Public
   self.filter = {};
   self.models = {};
-  self.wines = [
+  self.cats = [
 
     {category: 'British Origin Ales', glass: 'Flute', isOrganic: "Y", servingTemperature: "cellar"},
     {category: 'North American Origin Ales', glass: 'Goblet', isOrganic: "N", servingTemperature: "cold"},
@@ -336,8 +319,8 @@ function BrewMoodControllerFunction(BeerFactory){
   }
 
   function getValuesFor(prop) {
-    return (self.wines || []).
-      map(function (wine) { return wine[prop]; }).
+    return (self.cats || []).
+      map(function (beer) { return beer[prop]; }).
       filter(function (value, idx, arr) { return arr.indexOf(value) === idx; });
   }
 
@@ -350,24 +333,6 @@ function BrewMoodControllerFunction(BeerFactory){
 
       });
   }
-
-//   $("input:checkbox").on('click', function() {
-//   // in the handler, 'this' refers to the box clicked on
-//   var $box = $(this);
-//   if ($box.is(":checked")) {
-//     // the name of the box is retrieved using the .attr() method
-//     // as it is assumed and expected to be immutable
-//     var group = "input:checkbox[name='" + $box.attr("name") + "']";
-//     // the checked state of the group/box on the other hand will change
-//     // and the current value is retrieved using .prop() method
-//     $(group).prop("checked", false);
-//     $box.prop("checked", true);
-//   } else {
-//     $box.prop("checked", false);
-//   }
-// });
-
-// $scope.name = "John Doeeeee"
 
 
 }
