@@ -33,22 +33,19 @@ angular
   ])
   .controller("CommentIndexController",["CommentFactory",CommentIndexControllerFunction])
   .controller("CommentShowController",["CommentFactory","$stateParams",CommentShowControllerFunction])
+  .controller("CommentNewController",["CommentFactory",CommentNewControllerFunction])
+  .controller("CommentEditController",["CommentFactory","$stateParams",CommentEditControllerFunction])
   .controller("BeerPercentController",[
     "BeerFactory",
     BeerPercentControllerFunction
   ])
-
   .controller("BrewMoodController",[
     "BeerFactory",
     BrewMoodControllerFunction
   ])
   .filter('capitalizeFirst', capitalizeFirstFilter)
 
-
   .controller("HomePageController",[HomePageControllerFunction])
-
-
-
   // .controller("BreweryNewController",[
   //   "BreweryFactory",
   //   BreweryNewControllerFunction
@@ -101,15 +98,14 @@ angular
     this.recommend =function (){
       this.messageBoard = true;
       // this.detail=false;
-      this.message=message
       let bodyWeightInGrams= this.bodyWeightInPound*454
       let genderContant=this.gender
-      let lossInTime=this.elapsedTime*0.015
+      let abv=this.abv
+      let lossInTime = this.elapsedTime * 0.015
       let maximumAllowedBACPercentage= 0.08 + lossInTime
       let alcholDose= maximumAllowedBACPercentage*bodyWeightInGrams*genderContant/100
-      let numberOfStandardDrink=alcholDose/14
+      let numberOfStandardDrink=alcholDose/(14*abv)
       this.allowednumberOfStandardDrink=numberOfStandardDrink.toFixed(1)
-      let message= "Sorry, Nothing to say now."
     }
     this.calculate = function(){
       this.messageBoard = true;
@@ -183,6 +179,18 @@ function RouterFunction($stateProvider){
     controller: "CommentShowController",
 })
 
+.state("commentNew",{
+  url: "/comments/new",
+  templateUrl: "js/ng-views/comment/comment-new.html",
+  controller: "CommentNewController",
+  controllerAs: "vm"
+})
+.state("commentEdit",{
+  url: "/comments/:id/edit",
+  templateUrl: "js/ng-views/comment/comment-edit.html",
+  controller: "CommentEditController",
+  controllerAs: "vm"
+})
   .state("brewMood", {
     url: "/brewmood",
     templateUrl: "ng-views/home-views/brew-mood.html",
@@ -207,27 +215,55 @@ function RouterFunction($stateProvider){
 function BreweryIndexControllerFunction( BreweryFactory ){
   this.breweries = BreweryFactory.query();
 
+
+  // var allBrew = $(".breweries-contatiner")
+  // console.log(allBrew)
+  // // var htmlText = "<div data-ng-repeat='brewery in vm.breweries'><p><a data-ui-sref='breweryShow({id: brewery.id})''>{{brewery.name}} </a></p></div>"
+  // // var test = "<p>test<p>"
+  // // allBrew.append(test)
+  //
+  // var newDiv = $("<div></div>")
+  // console.log(newDiv)
+  // // newDiv.css('ng-repeat', 'brewery in vm.breweries')
+  // // newDiv.css()
+  // newDiv.addClass("test")
+  // console.log(newDiv.className)
+  // allBrew.append(newDiv)
+
+
 }
 
 function BeerIndexControllerFunction( BeerFactory, BreweryFactory ){
   this.beers = BeerFactory.query()
   let self = this
-
-
-
-
-
-
-
 }
 function CommentIndexControllerFunction( CommentFactory ){
   console.log("Am CommentIndexControllerFunction");
   this.comments = CommentFactory.query();
+  console.log(this.comments);
 }
 function CommentShowControllerFunction(CommentFactory, $stateParams){
   console.log("Am CommentShowControllerFunction");
 
   this.comment = CommentFactory.get({id: $stateParams.id});
+}
+function CommentNewControllerFunction(GrumbleFactory){
+  console.log("Am CommentNewControllerFunction");
+  this.comment = new CommentFactory();
+  this.create = function(){
+    this.comment.$save()
+  }
+}
+
+function CommentEditControllerFunction( BreweryFactory, $stateParams ){
+  console.log("Am CommentEditControllerFunction");
+  this.comment = CommentFactory.get({id: $stateParams.id});
+  this.update = function(){
+    this.comment.$update({id: $stateParams.id})
+  }
+  this.destroy = function(){
+    this.comment.$delete({id: $stateParams.id})
+  }
 }
 function BreweryShowControllerFunction(BreweryFactory, $stateParams){
   this.brewery = BreweryFactory.get({id: $stateParams.id});
@@ -363,5 +399,7 @@ function BrewMoodControllerFunction(BeerFactory){
     return $resource( "http://localhost:3000/beers/:id")
   }
   function CommentFactoryFunction($resource){
-    return $resource("http://localhost:3000/comments/:id")
+    return $resource("http://localhost:3000/comments/:id", {}, {
+        update: { method: "PUT" }
+    })
   }

@@ -106,11 +106,15 @@ footer{
   display: flex;
   flex-direction: row;
 }
+#optionIcon{
+  width: 40px;
+  height: 40px;
+}
 .section{
-  width:1200px;
+  width:1000px;
 }
 .section1{
-  width:800px;
+  width:500px;
 }
 
 .test{
@@ -125,5 +129,10 @@ footer{
 }
 
 @media screen and (max-width: 600px) {
+
+}
+
+
+@media screen and (max-width: 400px) {
 
 }
