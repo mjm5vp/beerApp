@@ -16,7 +16,8 @@ all_breweries = []
 all_beers = []
 
 # 194
-1.times do |page|
+194.times do |page|
+  puts "page: #{page}"
   breweriesUrl = "http://api.brewerydb.com/v2/locations/?key=9cbedc703b22c38506ed1375ea350381&p=#{page}"
   breweriesResponse = HTTParty.get(breweriesUrl).parsed_response["data"]
 
@@ -69,7 +70,7 @@ all_beers = []
     )
 
     breweryId = brewery["breweryId"]
-    puts "breweryId: #{breweryId}"
+    # puts "breweryId: #{breweryId}"
     breweryBeersUrl = "http://api.brewerydb.com/v2/brewery/#{breweryId}/beers/?key=9cbedc703b22c38506ed1375ea350381"
     breweriesBeersResponse = HTTParty.get(breweryBeersUrl).parsed_response["data"]
 
@@ -133,7 +134,7 @@ all_beers = []
           bitterness = "very low"
         end
 
-        puts "Beer: #{beer["name"]}"
+        # puts "Beer: #{beer["name"]}"
         this_beer = Beer.create!(
         name: beer["name"],
         description: beer["description"],
@@ -175,7 +176,7 @@ all_beers = []
 
       end
     else
-      puts "This brewery has no beers"
+      # puts "This brewery has no beers"
     end
 
   end

@@ -7,7 +7,7 @@ class CreateBeers < ActiveRecord::Migration[5.1]
 
 
       t.float :abv
-      t.string :ibu
+      t.float :ibu
       t.integer :glasswareId
       t.string :glass
       t.integer :srmId

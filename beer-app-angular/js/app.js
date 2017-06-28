@@ -303,7 +303,7 @@ function BrewMoodControllerFunction(BeerFactory){
   // console.log("self.filter: " + self.filter)
 
   // Functions - Definitions
-  function filterByProperties(wine) {
+  function filterByProperties(bur) {
     // console.log("self.filter" + self.filter)
     // console.log("Object.keys(self.filter): " + Object.keys(self.filter))
     var activeFilterProps = Object
@@ -314,10 +314,10 @@ function BrewMoodControllerFunction(BeerFactory){
 
     // Use this snippet for matching with AND
     return activeFilterProps.
-      every(function (prop) { return self.filter[prop][wine[prop]]; });
+      every(function (prop) { return self.filter[prop][bur[prop]]; });
     // Use this snippet for matching with OR
     //return !activeFilterProps.length || activeFilterProps.
-    //  some(function (prop) { return self.filter[prop][wine[prop]]; });
+    //  some(function (prop) { return self.filter[prop][bur[prop]]; });
   }
 
   function getValuesFor(prop) {

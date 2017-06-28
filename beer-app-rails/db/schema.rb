@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20170623184101) do
     t.string "name"
     t.string "description"
     t.float "abv"
-    t.string "ibu"
+    t.float "ibu"
     t.integer "glasswareId"
     t.string "glass"
     t.integer "srmId"
