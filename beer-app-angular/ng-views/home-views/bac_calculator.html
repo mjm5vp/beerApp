@@ -4,78 +4,95 @@
 <select ng-model="selectedcity" ng-options="city.name for city in vm.cities | filter:  {countryId: vm.selectedcountrty.countryId}"}>
   <option value="">Select City</option>
 </select> -->
+<div ng-hide="vm.startpage">
+  <p>Terms and agreemnts:</p>
+  <p >By clicking this, I confirm the follwing agreemnts.<br>
+    I am 21 and above. </br>
+    I understand that some factor might change BAC result in reality.</br>
+    There is no way the app will be responsible for any consequences. </br>
+    And son on.
+  </p>
+  <p>
+    <!-- <input type="checkbox"  ng-model="vm.termsRead" ng-value="0.68" > -->
+    <input  ng-model="vm.termsRead" type="radio" name="termsRead" ng-value="2">
+    I read and agree the above terms and conditions:
+  </p>
+<button ng-click="vm.start()">Submit</button>
+<button id="xx"  type="button" name="button">kkk</button>
+</div>
 
+<div ng-show="vm.startpage" >
 
+  <div id="bac">
+      <div class="section">
+        <input ng-model="vm.x" type="radio" name="optionselect" ng-value=false >Body Alchol Content Calculator
+        <input ng-model="vm.x" type="radio" name="optionselect" ng-value=true >How much should I drink?
+        <div ng-hide="vm.x">
+          <p>Number of total Standard Drink:    {{vm.numberOfStandardDrink}}
+            <button ng-click="vm.Up()" >UP</button>
+            <button ng-click="vm.Down()">Down</button>
+          <p>Body weight [pounds] :<input ng-model="vm.bodyWeightInPound" value="0"></p>
 
-
-<div id="bac">
-    <div class="section">
-      <input ng-model="vm.x" type="radio" name="optionselect" ng-value=false >Body Alchol Content Calculator
-      <input ng-model="vm.x" type="radio" name="optionselect" ng-value=true >How much should I drink?
-      <div ng-hide="vm.x">
-        <p>Number of total Standard Drink:    {{vm.numberOfStandardDrink}}
-          <button ng-click="vm.Up()" >UP</button>
-          <button ng-click="vm.Down()">Down</button>
-        <p>Body weight [pounds] :<input ng-model="vm.bodyWeightInPound" value="0"></p>
-
-        <label for="Gender">Gender:</label>
-        <input ng-model="vm.gender" type="radio" name="genderselect" ng-value="0.68" checked>Male
-        <input ng-model="vm.gender" type="radio" name="genderselect" ng-value="0.55">Female
-        <div>
-          <label for="elapsedTime">Elapsed Time [hrs]:</label>
+          <label for="Gender">Gender:</label>
+          <input ng-model="vm.gender" type="radio" name="genderselect" ng-value="0.68" checked>Male
+          <input ng-model="vm.gender" type="radio" name="genderselect" ng-value="0.55">Female
+          <div>
+            <label for="elapsedTime">Elapsed Time [hrs]:</label>
+            <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="1" checked>1
+            <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="2">2
+            <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="3" >3
+            <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="4">4
+            <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="5">5
+            <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="6">6
+          </div>
+          <button ng-click="vm.calculate()">Calculate</button>
+          <p ng-show="vm.messageBoard">The BAC total consumption is {{vm.BACPercentage}}, but conidering the elapsed time
+             it will be {{vm.currentBACPercentage}}</p>
+          <p ng-show="vm.messageBoard">As per this result, {{vm.message}}</p>
+        </div>
+        <div ng-show="vm.x">
+          <p>Body weight [pounds] :<input ng-model="vm.bodyWeightInPound" value="0"></p>
+          <label for="Gender">Gender:</label>
+          <input ng-model="vm.gender" type="radio" name="genderselect" ng-value="0.68" checked>Male
+          <input ng-model="vm.gender" type="radio" name="genderselect" ng-value="0.55">Female
+          </br>
+          <label for="elapsedTime">How long you will stay [hrs]:</label>
           <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="1" checked>1
           <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="2">2
           <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="3" >3
           <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="4">4
           <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="5">5
           <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="6">6
+          </br>
+          <input ng-model="vm.abv" type="radio" name="abv" ng-value="4/5" checked> Light beer (< 4%abv)
+          <input ng-model="vm.abv" type="radio" name="abv" ng-value="1"> Normal(4 % - 6% abv)
+          <input ng-model="vm.abv" type="radio" name="abv" ng-value="6/5" > Strong (>6% abv)
+          <div>
+            <input ng-model="vm.ibu" type="radio" name="ibu" ng-value="4/5" checked> Less Bitter (< 20 IBU)
+            <img id ="optionIcon" src="http://www.craftbeer.com/wp-content/uploads/_SF/thumbnails/belgian-style-blonde-ale.jpg" alt="Non-bitter beer">
+            <input ng-model="vm.ibu" type="radio" name="ibu" ng-value="1"> Meduim Bitter (20-40 IBU)
+            <img id ="optionIcon" src="https://www.beerbrokerxl.nl/themes/beerbroker/images/beer-glass.png" alt="Normal beer">
+            <input  ng-model="vm.ibu" type="radio" name="ibu" ng-value="6/5" > More Bitter (>40 IBU)
+            <img id ="optionIcon" src="http://oliverbrewingco.com/site/wp-content/uploads/2015/04/obc-beer-darkhorse2.png" alt="Bitter beer">
+          </div>
+          <button ng-click="vm.recommend()">Submit</button>
+          <p ng-show="vm.messageBoard">Based on your response, you can drink  {{vm.allowednumberOfStandardDrink}}.
+            <br>Caustion:Your current mood, weather condition and personality might affect the result. </p>
+            <!-- <p>Click here to see the possible list of beers that macthes your interest.</p> <button ng-click="vm.filter()"></button>  -->
         </div>
-        <button ng-click="vm.calculate()">Calculate</button>
-        <p ng-show="vm.messageBoard">The BAC total consumption is {{vm.BACPercentage}}, but conidering the elapsed time
-           it will be {{vm.currentBACPercentage}}</p>
-        <p ng-show="vm.messageBoard">As per this result, {{vm.message}}</p>
       </div>
-      <div ng-show="vm.x">
-        <p>Body weight [pounds] :<input ng-model="vm.bodyWeightInPound" value="0"></p>
-        <label for="Gender">Gender:</label>
-        <input ng-model="vm.gender" type="radio" name="genderselect" ng-value="0.68" checked>Male
-        <input ng-model="vm.gender" type="radio" name="genderselect" ng-value="0.55">Female
-        </br>
-        <label for="elapsedTime">How long you will stay [hrs]:</label>
-        <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="1" checked>1
-        <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="2">2
-        <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="3" >3
-        <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="4">4
-        <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="5">5
-        <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="6">6
-        </br>
-        <input ng-model="vm.abv" type="radio" name="abv" ng-value="4/5" checked> Light beer (< 4%abv)
-        <input ng-model="vm.abv" type="radio" name="abv" ng-value="1"> Normal(4 % - 6% abv)
-        <input ng-model="vm.abv" type="radio" name="abv" ng-value="6/5" > Strong (>6% abv)
-        <div>
-          <input ng-model="vm.ibu" type="radio" name="ibu" ng-value="4/5" checked> Less Bitter (< 20 IBU)
-          <img id ="optionIcon" src="http://www.craftbeer.com/wp-content/uploads/_SF/thumbnails/belgian-style-blonde-ale.jpg" alt="Non-bitter beer">
-          <input ng-model="vm.ibu" type="radio" name="ibu" ng-value="1"> Meduim Bitter (20-40 IBU)
-          <img id ="optionIcon" src="https://www.beerbrokerxl.nl/themes/beerbroker/images/beer-glass.png" alt="Normal beer">
-          <input  ng-model="vm.ibu" type="radio" name="ibu" ng-value="6/5" > More Bitter (>40 IBU)
-          <img id ="optionIcon" src="http://oliverbrewingco.com/site/wp-content/uploads/2015/04/obc-beer-darkhorse2.png" alt="Bitter beer">
-        </div>
-        <button ng-click="vm.recommend()">Submit</button>
-        <p ng-show="vm.messageBoard">Based on your response, you can drink  {{vm.allowednumberOfStandardDrink}}.
-          <br>Caustion:Your current mood, weather condition and personality might affect the result. </p>
-          <!-- <p>Click here to see the possible list of beers that macthes your interest.</p> <button ng-click="vm.filter()"></button>  -->
-      </div>
-    </div>
 
-    <div class="section1">
-      <p>Standards Information:<input type="checkbox"  ng-model="vm.notice"></p>
-      <iframe ng-hide="vm.notice" width="420" height="255" src="https://www.youtube.com/embed/uU5Q9_onyJE">
-      </iframe>
-      <p ng-show="vm.notice">The following are considered standard drink pours:<br>
-        The standard drink size of liqueur (about 40% abv) </br>
-        such as gin or whiskey is approximately 1.5 ounces.</br>
-        The standard drink size of a beer with a 5% abv is 12 ounces. </br>
-        The standard drink size of a wine with a 12% abv 5 ounces.
-      </p>
-    </div>
+      <div class="section1">
+        <p>Standards Information:<input type="checkbox"  ng-model="vm.notice"></p>
+        <iframe ng-hide="vm.notice" width="420" height="255" src="https://www.youtube.com/embed/uU5Q9_onyJE">
+        </iframe>
+        <p ng-show="vm.notice">The following are considered standard drink pours:<br>
+          The standard drink size of liqueur (about 40% abv) </br>
+          such as gin or whiskey is approximately 1.5 ounces.</br>
+          The standard drink size of a beer with a 5% abv is 12 ounces. </br>
+          The standard drink size of a wine with a 12% abv 5 ounces.
+        </p>
+      </div>
+  </div>
+
 </div>
