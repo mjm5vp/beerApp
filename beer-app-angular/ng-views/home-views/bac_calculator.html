@@ -1,9 +1,12 @@
-<select ng-model="vm.selectedcountrty" ng-options="country.name for country in vm.countries">
+<!-- <select ng-model="vm.selectedcountrty" ng-options="country.name for country in vm.countries">
   <option value="">Select Country</option>
 </select>
 <select ng-model="selectedcity" ng-options="city.name for city in vm.cities | filter:  {countryId: vm.selectedcountrty.countryId}"}>
   <option value="">Select City</option>
-</select>
+</select> -->
+
+
+
 
 <div id="bac">
     <div class="section">
@@ -65,10 +68,10 @@
     </div>
 
     <div class="section1">
-      <p>Standard Information:<input type="checkbox"  ng-model="vm.notice"></p>
+      <p>Standards Information:<input type="checkbox"  ng-model="vm.notice"></p>
       <iframe ng-hide="vm.notice" width="420" height="255" src="https://www.youtube.com/embed/uU5Q9_onyJE">
       </iframe>
-      <p ng-show="vm.notice">The following are considered as standard drink:<br>
+      <p ng-show="vm.notice">The following are considered standard drink pours:<br>
         The standard drink size of liqueur (about 40% abv) </br>
         such as gin or whiskey is approximately 1.5 ounces.</br>
         The standard drink size of a beer with a 5% abv is 12 ounces. </br>

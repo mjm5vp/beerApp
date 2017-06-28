@@ -101,15 +101,20 @@ aside h1{
   display: flex;
   flex-direction: row;
 }
+
 #optionIcon{
   width: 40px;
   height: 40px;
 }
 .section{
-  width:1000px;
+  width:100%;
+  text-align: center;
+  padding: 10px;
 }
 .section1{
   width:500px;
+  padding: 10px;
+  text-align: center;
 }
 
 .test{
@@ -121,6 +126,17 @@ aside h1{
 .indexBrew{
   margin: auto;
   text-align: center;
+}
+
+.sorts{
+  display: inline-block;
+  position: relative;
+  padding: 10px;
+
+}
+
+.sorts button{
+  margin: 20px;
 }
 
 @media screen and (max-width: 600px) {
@@ -199,6 +215,24 @@ aside h1{
     padding: 10px;
     margin: auto;
     height: 100px;
+  }
+
+  .mapContainer{
+    float: left;
+    width: 90%;
+    margin: 10px;
+    border: 1px solid orange;
+    border-radius: 10px;
+  }
+
+  aside{
+    width: 90%;
+    margin: 10px;
+    background-color: lightgrey;
+    padding: 10px;
+    border: 1px solid orange;
+    text-align: center;
+    border-radius: 10px;
   }
 
   .beerContent{
