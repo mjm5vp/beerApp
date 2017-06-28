@@ -131,6 +131,14 @@ all_beers = []
         category: category,
         style_name: style_name,
 
+        brewery_name: brewery["brewery"]["name"],
+        icon: icon,
+        medium: medium,
+        large: large,
+        squareMedium: squareMedium,
+        squareLarge: squareLarge,
+        brewery_website: brewery["website"],
+
         brewery: this_brewery
         )
       end

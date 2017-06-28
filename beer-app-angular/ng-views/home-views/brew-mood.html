@@ -1,56 +1,27 @@
-<!-- <div ng-show="vm.details"> -->
 
-<!-- <div ng-controller="BrewMoodController" class=""> -->
-  <!-- <h1>My name is {{name}}</h1> -->
-
-
-<!-- <input  type="checkbox" id="cb1" ng-value="1"> <label for="cb1"><img src="http://lorempixel.com/100/100" /></label>
-<input  type="checkbox" id="cb2" ng-value="2"> <label for="cb2"><img src="http://lorempixel.com/100/100" /></label>
-<input  type="checkbox" id="cb3" ng-value="3"> <label for="cb3"><img src="http://lorempixel.com/100/100" /></label> -->
-<h1>test</h1>
-
-<!-- <input ng-model="vm.howDrunk" type="radio" name="elapsedTimeSelect" ng-value="1">
-<input ng-model="vm.howDrunk" type="radio" name="elapsedTimeSelect" ng-value="2">
-<input ng-model="vm.howDrunk" type="radio" name="elapsedTimeSelect" ng-value="3"> -->
-
-<div data-ng-repeat="beer in vm.beers">
+<!-- <div data-ng-repeat="beer in vm.beers">
   <p><a data-ui-sref="beerShow({id: beer.id})">{{beer.name}} </a></p>
-</div>
-<!-- </div> -->
-  <!-- <label for="Gender">Gender:</label>
-  <input ng-model="vm.gender" type="radio" name="genderselect" ng-value="0.68" checked>Male
-  <input ng-model="vm.gender" type="radio" name="genderselect" ng-value="0.55">Female
-
-  </br>
-  <label for="elapsedTime">Elapsed Time [hrs]:</label>
-  <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="1" checked>1
-  <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="2">3
-  <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="3" checked>3
-  <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="4">4
-  <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="5" checked>5
-  <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="6">6
-
-  <button ng-click="vm.calculate()">Calculator</button>
-  <p ng-show="vm.messageBoard">The BAC total consumption is {{vm.BACPercentage}}, but conidering the elapsed time
-     it will be {{vm.currentBACPercentage}}</p>
-  <p ng-show="vm.messageBoard">As per this result, {{vm.message}}</p>
-</div>
-<h3>What should I drink? <input type="checkbox"  ng-model="vm.whatToDrink"></h3>
-<div ng-show="vm.whatToDrink">
-
-  <p>Body weight [pounds] :<input ng-model="vm.bodyWeightInPound" value="0"></p>
-  <label for="Gender">Gender:</label>
-  <input ng-model="vm.gender" type="radio" name="genderselect" ng-value="0.68" checked>Male
-  <input ng-model="vm.gender" type="radio" name="genderselect" ng-value="0.55">Female
-  </br>
-  <label for="elapsedTime">How many time you have[hrs]:</label>
-  <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="1" checked>1
-  <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="2">3
-  <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="3" checked>3
-  <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="4">4
-  <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="5" checked>5
-  <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="6">6
-
-  <button ng-click="vm.recommend()">Calculator</button>
-  <p ng-show="vm.messageBoard">As per this result, {{vm.message}}</p>
 </div> -->
+
+<!-- <div ng-controller="BrewMoodController as vm"> -->
+  <div ng-repeat="(cat, hello) in vm.wines[0]" ng-init="vm.filter[cat] = {}">
+    <h3>{{ cat | capitalizeFirst }} <input type="checkbox" ng-model="models[cat]"></h3>
+    <div class="quarter" ng-repeat="value in vm.getValuesFor(cat)" ng-show="models[cat]">
+      <label>
+        <input type="checkbox" ng-model="vm.filter[cat][value]" />
+        {{ value }}
+      </label>
+    </div>
+    <hr />
+  </div>
+  <div>
+    <h3>Matching Beers</h3>
+    <div ng-repeat="beer in (vm.beers | filter:vm.filterByProperties) as filteredBeers">
+      <p><a data-ui-sref="beerShow({id: beer.id})">{{beer.name}} </a></p>
+    </div>
+    <hr />
+    <b>Number of results: {{ filteredBeers.length }}</b>
+  </div>
+
+
+<!-- </div> -->

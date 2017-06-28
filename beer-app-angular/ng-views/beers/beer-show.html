@@ -3,7 +3,7 @@
 <div class="beerContent">
     <h1>{{vm.beer.name}}</h1>
     <p>Style: {{vm.beer.style_name}}</p>
-    <p>Brewery: {{vm.brewery.name}}</p>
+    <p>Brewery: <a ui-sref="breweryShow({id: vm.beer.brewery_id})">{{vm.brewery.name}}</a></p>
     <p>ABV: {{vm.beer.abv}}% | IBU: {{vm.beer.ibu}} | Organic: {{vm.beer.isOrganic}} </p>
     <p>About: {{vm.beer.description}}<p>
     <p>Status: {{vm.beer.status}}</p>

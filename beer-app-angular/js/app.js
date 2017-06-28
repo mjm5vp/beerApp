@@ -4,7 +4,8 @@ angular
   .module("beerApp", [
     "ngMap",
     "ui.router",
-    "ngResource"
+    "ngResource",
+    'angular.filter'
 
   ])
   .config([
@@ -42,6 +43,7 @@ angular
     "BeerFactory",
     BrewMoodControllerFunction
   ])
+  .filter('capitalizeFirst', capitalizeFirstFilter)
 
 
   .controller("HomePageController",[HomePageControllerFunction])
@@ -275,9 +277,79 @@ function BeerPercentControllerFunction(BeerFactory){
   })
 }
 
+function capitalizeFirstFilter() {
+  return function _doFilter(str) {
+    return str && (str.charAt(0).toUpperCase() + str.substring(1));
+  };
+}
+
 function BrewMoodControllerFunction(BeerFactory){
   console.log("test")
   this.beers = BeerFactory.query()
+
+  // Variables - Private
+  var self = this;
+
+  // Variables - Public
+  self.filter = {};
+  self.models = {};
+  self.wines = [
+
+    {category: 'British Origin Ales', glass: 'Flute', isOrganic: "Y", servingTemperature: "cellar"},
+    {category: 'North American Origin Ales', glass: 'Goblet', isOrganic: "N", servingTemperature: "cold"},
+    {category: 'Hybrid/mixed Beer', glass: 'Mug', isOrganic: "Y", servingTemperature: "cool"},
+    {category: 'Belgian And French Origin Ales', glass: 'Pilsner', isOrganic: "Y", servingTemperature: "very_cold"},
+    {category: 'North American Lager', glass: 'Pint', isOrganic: "Y", servingTemperature: "cellar"},
+    {category: 'German Origin Ales', glass: 'Snifter', isOrganic: "Y", servingTemperature: "cellar"},
+    {category: 'European-germanic Lager', glass: 'Stange', isOrganic: "Y", servingTemperature: "cellar"},
+    {category: 'Irish Origin Ales', glass: 'Tulip', isOrganic: "Y", servingTemperature: "cellar"},
+    {category: 'Other Lager', glass: 'Weizen', isOrganic: "Y", servingTemperature: "cellar"},
+    {category: 'International Styles', glass: 'Oversized Wine Glass', isOrganic: "Y", servingTemperature: "cellar"},
+    {category: 'International Ale Styles', glass: 'Willi', isOrganic: "Y", servingTemperature: "cellar"},
+    {category: 'Mead, Cider, & Perry', glass: 'Thistle', isOrganic: "Y", servingTemperature: "cellar"},
+    {category: 'Malternative Beverages', glass: 'Flute', isOrganic: "Y", servingTemperature: "cellar"},
+    {category: 'European-germanic Lager', glass: 'Flute', isOrganic: "Y", servingTemperature: "cellar"},
+    {category: 'Other Origin', glass: 'Flute', isOrganic: "Y", servingTemperature: "cellar"},
+  ];
+
+  // Functions - Public
+  self.filterByProperties = filterByProperties;
+  self.getValuesFor = getValuesFor;
+  // console.log("self.filter: " + self.filter)
+
+  // Functions - Definitions
+  function filterByProperties(wine) {
+    // console.log("self.filter" + self.filter)
+    // console.log("Object.keys(self.filter): " + Object.keys(self.filter))
+    var activeFilterProps = Object
+      .keys(self.filter)
+      .filter(function (prop) {
+        return !noFilter(self.filter[prop]);
+      });
+
+    // Use this snippet for matching with AND
+    return activeFilterProps.
+      every(function (prop) { return self.filter[prop][wine[prop]]; });
+    // Use this snippet for matching with OR
+    //return !activeFilterProps.length || activeFilterProps.
+    //  some(function (prop) { return self.filter[prop][wine[prop]]; });
+  }
+
+  function getValuesFor(prop) {
+    return (self.wines || []).
+      map(function (wine) { return wine[prop]; }).
+      filter(function (value, idx, arr) { return arr.indexOf(value) === idx; });
+  }
+
+  function noFilter(filterObj) {
+    return Object.
+      keys(filterObj).
+      every(function (key) {
+        // console.log("filterObj: " + filterObj[key])
+        return !filterObj[key];
+
+      });
+  }
 
 //   $("input:checkbox").on('click', function() {
 //   // in the handler, 'this' refers to the box clicked on

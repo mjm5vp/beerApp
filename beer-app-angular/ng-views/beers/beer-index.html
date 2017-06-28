@@ -1,11 +1,12 @@
 <h1>Beer Index</h1>
 
-<p><input type="text" ng-model="filt.names"></p>
+<p><input type="text" ng-model="filt.names" placeholder="Search Beers"></p>
 
 
 <div class="beers-container">
   <div class="beer-container-index" data-ng-repeat="beer in vm.beers | filter: filt.names">
     <p class="style_name"><a data-ui-sref="beerShow({id: beer.id})">{{beer.name}} </a></p>
+    <a data-ui-sref="breweryShow({id: beer.brewery_id})""><img class="beer-icon-image" src="{{beer.icon}}" alt=""></a>
     <p class="category">{{beer.category}}</p>
   </div>
 </div>
