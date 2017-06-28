@@ -3,7 +3,9 @@
       <div class="content_head">
         <h1>{{vm.brewery.name}}</h1>
       </div>
+      <div class="brewImg">
         <img src="{{vm.brewery.large}}"></img>
+      </div>
         <p>Address: {{vm.brewery.streetAddress}}, {{vm.brewery.locality}}, {{vm.brewery.region}}</p>
         <p>Phone: {{vm.brewery.phone}}</p>
         <p>Website: <a href='{{vm.brewery.website}}'>{{vm.brewery.website}}</a></p>
@@ -20,11 +22,14 @@
 
         <hr class="featurette-divider">
 
+<!-- Pull beers into breweries -->
         <h2>Beers</h2>
-        <div ng-repeat="beer in vm.beers">
-          <p>{{vm.beer.name}} | {{vm.beer.type}}</p>
-        </div>
-    </div>
+          <div class="beerContainer">
+            <div class="beerContainerBreweryShow" data-ng-repeat="beer in vm.beers | filter: filt.brewery.id">
+              <p class="style_name"><a data-ui-sref="beerShow({id: beer.id})">{{beer.name}} </a></p>
+            </div>
+          </div>
+</div>
 
     <div class="mapContainer">
       <ng-map center="[{{vm.brewery.latitude}}, {{vm.brewery.longitude}}]" zoom="10">

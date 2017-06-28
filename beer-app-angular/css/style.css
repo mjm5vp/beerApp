@@ -39,11 +39,14 @@ body h1{
   font-family: 'Righteous', sans-serif;
 }
 
-.content img{
-  display: block;
-  padding: 10px;
+.brewImg{
+  position: inherit;
   margin: auto;
-  height: 200px;
+}
+
+.brewImg img{
+  margin: auto;
+  width: 95%;
 }
 
 .content h1{
@@ -94,14 +97,6 @@ aside h1{
   border-radius: 10px;
 }
 
-footer{
-  height: 50px;
-  text-align: center;
-  margin: 10px;
-  width: 100%;
-  bottom: 0;
-}
-
 #bac{
   display: flex;
   flex-direction: row;
@@ -129,10 +124,92 @@ footer{
 }
 
 @media screen and (max-width: 600px) {
+  .logoHeader h1{
+    position: relative;
+    font-size: 75px;
+  }
 
+  .content{
+    margin: 10px;
+    background-color: white;
+    width: 80%;
+    padding: 10px;
+    border: 1px solid orange;
+    text-align: center;
+    border-radius: 10px;
+  }
+
+  .content img{
+    display: block;
+    padding: 10px;
+    margin: auto;
+    height: 150px;
+  }
+
+  .mapContainer{
+    float: left;
+    width: 80%;
+    margin: 10px;
+    border: 1px solid orange;
+    border-radius: 10px;
+  }
+
+  aside{
+    float: left;
+    width: 80%;
+    margin: 10px;
+    background-color: lightgrey;
+    padding: 10px;
+    border: 1px solid orange;
+    text-align: center;
+    border-radius: 10px;
+  }
+
+  .beerContent{
+    display: block;
+    margin: auto;
+    background-color: white;
+    width: 80%;
+    padding: 10px;
+    border: 1px solid orange;
+    text-align: center;
+    border-radius: 10px;
+  }
 }
 
 
 @media screen and (max-width: 400px) {
+  .logoHeader h1{
+    position: relative;
+    font-size: 50px;
+  }
+
+  .content{
+    margin: 10px;
+    background-color: white;
+    width: 80%;
+    padding: 10px;
+    border: 1px solid orange;
+    text-align: center;
+    border-radius: 10px;
+  }
+
+  .content img{
+    display: block;
+    padding: 10px;
+    margin: auto;
+    height: 100px;
+  }
+
+  .beerContent{
+    display: block;
+    margin: auto;
+    background-color: white;
+    width: 90%;
+    padding: 10px;
+    border: 1px solid orange;
+    text-align: center;
+    border-radius: 10px;
+  }
 
 }
