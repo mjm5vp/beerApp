@@ -5,7 +5,6 @@ angular
     "ngMap",
     "ui.router",
     "ngResource"
-
   ])
   .config([
     "$stateProvider",
@@ -181,6 +180,7 @@ function RouterFunction($stateProvider){
     templateUrl: "ng-views/comment/comment-show.html",
     controller: "CommentShowController",
 })
+
   .state("brewMood", {
     url: "/brewmood",
     templateUrl: "ng-views/home-views/brew-mood.html",
@@ -258,10 +258,10 @@ function BeerShowControllerFunction(BeerFactory, BreweryFactory, $stateParams){
     console.log(brewery)
     self.brewery = brewdata
     console.log(self.brewery)
+    })
   })
-  })
-
 }
+
 function BeerPercentControllerFunction(BeerFactory){
   var abv = $("#abvInput")
   this.beers = BeerFactory.query()

@@ -1,17 +1,9 @@
 
 
-
-<h1>Brewery Index</h1>
-
-<p><input type="text" ng-model="filt.names" placeholder="Search Breweries"></p>
-
-<!-- <select onChange="if(this.selectedIndex!=0) self.location=this.options[this.selectedIndex].value">
-     <option>Select A Brewery by Name</option>
-     <option value="breweryShow({id: brewery.id})">{{brewery.name}}</option>
-  </select> -->
-
-
-
+<div class="indexBrew">
+    <h1>Search Breweris</h1>
+    <p><input type="text" ng-model="filt.names" placeholder="Search Breweries"></p>
+</div>
 
 <div class="beers-container">
   <div class="brewery-container-index" data-ng-repeat="brewery in vm.breweries | filter: filt.names">
