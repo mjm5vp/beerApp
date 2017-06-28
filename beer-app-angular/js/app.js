@@ -43,8 +43,12 @@ angular
     "BeerFactory",
     BeerIbuControllerFunction
   ])
-  .controller("BrewMoodController",[
+  .controller("BeerMoodController",[
     "BeerFactory",
+    BeerMoodControllerFunction
+  ])
+  .controller("BrewMoodController",[
+    "BreweryFactory",
     BrewMoodControllerFunction
   ])
   .filter('capitalizeFirst', capitalizeFirstFilter)
@@ -73,6 +77,15 @@ angular
 
   function HomePageControllerFunction(){
     console.log("Am the homepage controller");
+    this.start =function (){
+      if (this.termsRead==2){
+        this.startpage=true
+      }
+      else
+      {
+        alert('Please, click on read and agree to the Terms and Conditions and Privacy Policy')
+      }
+    }
     //Note: This data will be replaced with the real data
     var cities = [
       {cityid: 1, name: 'DC', countryId: 1},
@@ -200,8 +213,14 @@ function RouterFunction($stateProvider){
   controller: "CommentEditController",
   controllerAs: "vm"
 })
+  .state("beerMood", {
+    url: "/beer-mood",
+    templateUrl: "ng-views/home-views/beer-mood.html",
+    controller: "BeerMoodController",
+    controllerAs: "vm"
+  })
   .state("brewMood", {
-    url: "/brewmood",
+    url: "/brew-mood",
     templateUrl: "ng-views/home-views/brew-mood.html",
     controller: "BrewMoodController",
     controllerAs: "vm"
@@ -256,7 +275,7 @@ function CommentShowControllerFunction(CommentFactory, $stateParams){
 
   this.comment = CommentFactory.get({id: $stateParams.id});
 }
-function CommentNewControllerFunction(GrumbleFactory){
+function CommentNewControllerFunction(CommentFactory){
   console.log("Am CommentNewControllerFunction");
   this.comment = new CommentFactory();
   this.create = function(){
@@ -264,7 +283,7 @@ function CommentNewControllerFunction(GrumbleFactory){
   }
 }
 
-function CommentEditControllerFunction( BreweryFactory, $stateParams ){
+function CommentEditControllerFunction( CommentFactory, $stateParams ){
   console.log("Am CommentEditControllerFunction");
   this.comment = CommentFactory.get({id: $stateParams.id});
   this.update = function(){
@@ -323,7 +342,7 @@ function capitalizeFirstFilter() {
   };
 }
 
-function BrewMoodControllerFunction(BeerFactory){
+function BeerMoodControllerFunction(BeerFactory){
   console.log("test")
   this.beers = BeerFactory.query()
 
@@ -396,6 +415,66 @@ function BrewMoodControllerFunction(BeerFactory){
 
 }
 
+function BrewMoodControllerFunction(BreweryFactory){
+  console.log("test")
+  this.breweries = BreweryFactory.query()
+
+  // Variables - Private
+  var self = this;
+
+  // Variables - Public
+  self.filter = {};
+  self.models = {};
+  self.cats = [
+    {region: "Virginia"},
+    {region: "District of Columbia"},
+    {region: "Maryland"}
+  ];
+
+  self.catNames = ["Location"]
+
+  // Functions - Public
+  self.filterByProperties = filterByProperties;
+  self.getValuesFor = getValuesFor;
+  // console.log("self.filter: " + self.filter)
+
+  // Functions - Definitions
+  function filterByProperties(brew) {
+    // console.log("self.filter" + self.filter)
+    // console.log("Object.keys(self.filter): " + Object.keys(self.filter))
+    var activeFilterProps = Object
+      .keys(self.filter)
+      .filter(function (prop) {
+        return !noFilter(self.filter[prop]);
+      });
+
+    // Use this snippet for matching with AND
+    return activeFilterProps.
+      every(function (prop) { return self.filter[prop][brew[prop]]; });
+    // Use this snippet for matching with OR
+    //return !activeFilterProps.length || activeFilterProps.
+    //  some(function (prop) { return self.filter[prop][brew[prop]]; });
+  }
+
+  function getValuesFor(prop) {
+    return (self.cats || []).
+      map(function (brew) { return brew[prop]; }).
+      filter(function (value, idx, arr) { return arr.indexOf(value) === idx; });
+  }
+
+  function noFilter(filterObj) {
+    return Object.
+      keys(filterObj).
+      every(function (key) {
+        // console.log("filterObj: " + filterObj[key])
+        return !filterObj[key];
+
+      });
+  }
+
+
+}
+
 // function BreweryNewControllerFunction(GrumbleFactory){
 //   this.brewery = new BreweryFactory();
 //   this.create = function(){
@@ -420,7 +499,7 @@ function BrewMoodControllerFunction(BeerFactory){
     return $resource( "http://localhost:3000/beers/:id")
   }
   function CommentFactoryFunction($resource){
-    return $resource("http://localhost:3000/comments/:id", {}, {
+    return $resource("http://localhost:3000/comments/:id.json", {}, {
         update: { method: "PUT" }
     })
   }
