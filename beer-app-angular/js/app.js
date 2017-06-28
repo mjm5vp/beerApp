@@ -39,6 +39,10 @@ angular
     "BeerFactory",
     BeerPercentControllerFunction
   ])
+  .controller("BeerIbuController",[
+    "BeerFactory",
+    BeerIbuControllerFunction
+  ])
   .controller("BrewMoodController",[
     "BeerFactory",
     BrewMoodControllerFunction
@@ -166,7 +170,12 @@ function RouterFunction($stateProvider){
     controller: "BeerPercentController",
     controllerAs: "vm"
   })
-
+  .state("beerIbu", {
+    url: "/beer-ibu",
+    templateUrl: "ng-views/home-views/beer-ibu.html",
+    controller: "BeerIbuController",
+    controllerAs: "vm"
+  })
   .state("commentIndex", {
     url: "/comments",
     templateUrl: "ng-views/comment/comment-index.html",
@@ -290,6 +299,18 @@ function BeerPercentControllerFunction(BeerFactory){
   this.abvMod = 8
   abv.on("change", function(){
     var currentVal = abv.val()
+    if (currentVal > 10){
+      console.log("over 10")
+    }
+  })
+}
+
+function BeerIbuControllerFunction(BeerFactory){
+  var ibu = $("#abvInput")
+  this.beers = BeerFactory.query()
+  this.ibuMod = 30
+  ibu.on("change", function(){
+    var currentVal = ibu.val()
     if (currentVal > 10){
       console.log("over 10")
     }

@@ -15,6 +15,32 @@ Comment.destroy_all
 all_breweries = []
 all_beers = []
 
+def location_check(brew)
+
+  compare_brew = {region: brew["region"], locality: brew["locality"]}
+
+  locations = [
+    {region: "Virginia", locality: "Alexandria"},
+    {region: "Virginia", locality: "Fairfax"},
+    {region: "Virginia", locality: "Falls Church"},
+    {region: "Virginia", locality: "Leesburg"},
+    {region: "Virginia", locality: "Lovettsville"},
+    {region: "Virginia", locality: "Arlington"},
+    {region: "Virginia", locality: "McLean"},
+    {region: "Virginia", locality: "Manassas"},
+    {region: "Virginia", locality: "Reston"},
+    {region: "Virginia", locality: "Centreville"},
+    {region: "Virginia", locality: "Vienna"},
+    {region: "Virginia", locality: "Annadale"},
+  ]
+  if locations.include? compare_brew
+    puts brew["locality"]
+    return true
+  else
+    return false
+  end
+end
+
 # 194
 194.times do |page|
   puts "page: #{page}"
@@ -22,7 +48,7 @@ all_beers = []
   breweriesResponse = HTTParty.get(breweriesUrl).parsed_response["data"]
 
   for brewery in breweriesResponse do
-    if brewery["locality"] == "Richmond"
+    if location_check(brewery)
       all_breweries.push(brewery)
 
       if brewery["brewery"]["images"]
@@ -184,39 +210,37 @@ all_beers = []
 
 end
 
+
+
+def find_localities
+  all_localities = []
+
+  194.times do |page|
+      breweriesUrl = "http://api.brewerydb.com/v2/locations/?key=9cbedc703b22c38506ed1375ea350381&p=#{page}"
+      breweriesResponse = HTTParty.get(breweriesUrl).parsed_response["data"]
+
+      for brewery in breweriesResponse do
+        if location_check(brewery)
+          puts brewery["locality"]
+          all_localities.push(brewery["locality"])
+        end
+
+      end
+
+  end
+  # all_localities.uniq!
+  # for loc in all_localities
+  #   puts loc
+  # end
+end
+
+
+
 puts "HTTParty Location Done"
 
-# for location in all_locations do
-#   this_location = Location.create!(loc_id: location["id"], name: location["name"], streetAddress: location["streetAddress"])
-#   #  brewery = location["brewery"]
-# end
-#
-# puts "Location objects created"
-#
-# # 1290
-# 1.times do |page|
-#   beersUrl = "http://api.brewerydb.com/v2/beers/?key=9cbedc703b22c38506ed1375ea350381&p=#{page}&withBreweries=Y"
-#   beersResponse = HTTParty.get(beersUrl).parsed_response["data"]
-#
-#   for beer in beersResponse do
-#     all_beers.push(beer)
-#   end
-# end
-#
-# puts "HTTParty Beer Done"
-#
-#
-# for beer in all_beers do
-#
-#   location = beer["breweries"][0]["locations"][0]["id"]
-#   puts location
-#   beer_location = Location.find_by(loc_id: location)
-#   puts beer_location
-#
-#   this_beer = Beer.create!(name: beer["name"], description: beer["description"], location: beer_location)
-# end
-#
-# puts "Beer objects created"
+
+
+
 
 
 
