@@ -15,19 +15,16 @@
     <hr />
   </div>
   <div>
-    <h3 class="cat-title">Matching Breweries: {{ filteredBrews.length }}</h3>
+    <h3 class="cat-title">Matching Beers: {{ filteredBeers.length }}</h3>
 
     <div class="beers-container">
 
 
-    <div class="brewery-container-index" ng-repeat="brewery in (vm.breweries | filter:vm.filterByProperties) as filteredBrews">
-      <!-- <p class="style_name"><a data-ui-sref="breweryShow({id: brewery.id})">{{brewery.name}} </a></p> -->
+    <div class="beer-container-index" ng-repeat="beer in (vm.beers | filter:vm.filterByProperties) as filteredBeers">
+      <p class="style_name"><a data-ui-sref="beerShow({id: beer.id})">{{beer.name}} </a></p>
       <!-- <a data-ui-sref="breweryShow({id: beer.brewery_id})"><img class="beer-icon-image" src="{{beer.icon}}" alt=""></a> -->
-      <!-- <p class="category">{{brewery.category}}</p> -->
+      <p class="category">{{beer.category}}</p>
       <!-- <p><a data-ui-sref="beerShow({id: beer.id})">{{beer.name}} </a></p> -->
-      <p class="style_name"><a data-ui-sref="breweryShow({id: brewery.id})">{{brewery.name}} </a></p>
-      <a data-ui-sref="breweryShow({id: brewery.id})"><img class="icon-image" src="{{brewery.icon}}" alt=""></a>
-      <p>{{brewery.locality}}</p>
     </div>
 
     </div>
