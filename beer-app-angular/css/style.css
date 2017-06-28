@@ -6,6 +6,11 @@ body h1{
   font-family: 'Righteous', sans-serif;
 }
 
+footer{
+  text-align: center;
+  color: orange;
+}
+
 .header img{
   height: 300px;
   width: 100%;
