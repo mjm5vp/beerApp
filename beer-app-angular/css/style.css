@@ -136,14 +136,7 @@ aside h1{
 }
 
 .sorts button{
-  margin: 10px;
-}
-
-.beer-color{
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  /*background-color: #C35900;*/
+  margin: 3px;
 }
 
 @media screen and (max-width: 600px) {
