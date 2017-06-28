@@ -14,6 +14,7 @@ Comment.destroy_all
 
 all_breweries = []
 all_beers = []
+beer_id_count = 0
 
 def location_check(brew)
 
@@ -90,6 +91,8 @@ end
 
       if breweriesBeersResponse
         for beer in breweriesBeersResponse do
+          beer_id_count = beer_id_count + 1
+          beer[:id] = beer_id_count
           brewery_beers.push(beer)
         end
         puts brewery_beers.length
@@ -282,6 +285,7 @@ puts "HTTParty Location Done"
 
 puts all_breweries.length
 puts all_beers.length
+puts beer_id_count
 
 
 # Sample seed data for comment part
