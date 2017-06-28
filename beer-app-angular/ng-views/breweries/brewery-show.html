@@ -6,7 +6,7 @@
       <div class="brewImg">
         <img src="{{vm.brewery.large}}"></img>
       </div>
-        <p>Address: {{vm.brewery.streetAddress}}, {{vm.brewery.locality}}, {{vm.brewery.region}}</p>
+        <p>Address: {{vm.brewery.streetAddress}}, {{vm.brewery.locality}}, {{vm.brewery.a_region}}</p>
         <p>Phone: {{vm.brewery.phone}}</p>
         <p>Website: <a href='{{vm.brewery.website}}'>{{vm.brewery.website}}</a></p>
         <p>{{vm.brewery.hoursOfOperation}}</p>
@@ -25,7 +25,7 @@
 <!-- Pull beers into breweries -->
         <h2>Beers</h2>
           <div class="beerContainer">
-            <div class="beerContainerBreweryShow" data-ng-repeat="beer in vm.beers | filter: filt.brewery.id">
+            <div class="beerContainerBreweryShow" data-ng-repeat="beer in vm.brewery.beers_list">
               <p class="style_name"><a data-ui-sref="beerShow({id: beer.id})">{{beer.name}} </a></p>
             </div>
           </div>
@@ -44,6 +44,8 @@
       <p>comments go here</p>
       <p>comments go here</p>
       <p>comments go here</p>
+
+
 
     </aside>
 </div>

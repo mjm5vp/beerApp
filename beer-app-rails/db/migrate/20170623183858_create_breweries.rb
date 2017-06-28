@@ -6,7 +6,7 @@ class CreateBreweries < ActiveRecord::Migration[5.1]
       t.string :streetAddress
       t.string :locality
       t.string :country
-      t.string :region
+      t.string :a_region
       t.string :locationTypeDisplay
       t.string :isClosed
       t.string :yearOpened
@@ -24,6 +24,8 @@ class CreateBreweries < ActiveRecord::Migration[5.1]
       t.string :isMassOwned
       t.string :brandClassification
       t.string :isOrganic
+
+      t.string :beers_list, default: [].to_yaml
 
 
 

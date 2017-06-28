@@ -5,7 +5,7 @@
 
 <!-- <div ng-controller="BrewMoodController as vm"> -->
   <div ng-repeat="(cat, val) in vm.cats[0]" ng-init="vm.filter[cat] = {}">
-    <h3 class="cat-title">{{ vm.catNames[$index] | capitalizeFirst }} <input type="checkbox" ng-model="models[cat]"></h3>
+    <h4 class="cat-title">{{ vm.catNames[$index] | capitalizeFirst }} <input type="checkbox" ng-model="models[cat]"></h4>
     <div class="quarter" ng-repeat="value in vm.getValuesFor(cat)" ng-show="models[cat]">
       <label class="cat-title">
         <input type="checkbox" ng-model="vm.filter[cat][value]" />
@@ -15,7 +15,7 @@
     <hr />
   </div>
   <div>
-    <h3 class="cat-title">Matching Breweries: {{ filteredBrews.length }}</h3>
+    <h5 class="cat-title">Matching Breweries: {{ filteredBrews.length }}</h5>
 
     <div class="beers-container">
 
@@ -31,7 +31,6 @@
     </div>
 
     </div>
-    <hr />
 
   </div>
 

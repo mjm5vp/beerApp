@@ -286,6 +286,7 @@ function CommentEditControllerFunction( BreweryFactory, $stateParams ){
 }
 function BreweryShowControllerFunction(BreweryFactory, $stateParams){
   this.brewery = BreweryFactory.get({id: $stateParams.id});
+  console.log(this.brewery.beers_list)
 }
 
 function BeerShowControllerFunction(BeerFactory, BreweryFactory, $stateParams){
@@ -417,12 +418,19 @@ function BrewMoodControllerFunction(BreweryFactory){
   self.filter = {};
   self.models = {};
   self.cats = [
-    {region: "Virginia"},
-    {region: "District of Columbia"},
-    {region: "Maryland"}
+    {a_region: "Virginia", locationTypeDisplay: "Micro Brewery"},
+    {a_region: "District of Columbia", locationTypeDisplay: "Macro Brewery"},
+    {a_region: "Maryland", locationTypeDisplay: "Nano Brewery"},
+    {a_region: "Virginia", locationTypeDisplay: "Brewpub"},
+    {a_region: "Virginia", locationTypeDisplay: "Production Facility"},
+    {a_region: "Virginia", locationTypeDisplay: "Office"},
+    {a_region: "Virginia", locationTypeDisplay: "Tasting Room"},
+    {a_region: "Virginia", locationTypeDisplay: "Restaurant/Ale House"},
+    {a_region: "Virginia", locationTypeDisplay: "Cidery"},
+    {a_region: "Virginia", locationTypeDisplay: "Meadery"},
   ];
 
-  self.catNames = ["Location"]
+  self.catNames = ["Location", "Type"]
 
   // Functions - Public
   self.filterByProperties = filterByProperties;

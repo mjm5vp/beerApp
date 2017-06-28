@@ -81,12 +81,30 @@ end
         squareLarge = "http://silhouettesfree.com/holiday-and-festive/saint-patrick-s-day/beer-silhouette-image-2.png"
       end
 
+      breweryId = brewery["breweryId"]
+      # puts "breweryId: #{breweryId}"
+      breweryBeersUrl = "http://api.brewerydb.com/v2/brewery/#{breweryId}/beers/?key=9cbedc703b22c38506ed1375ea350381"
+      breweriesBeersResponse = HTTParty.get(breweryBeersUrl).parsed_response["data"]
+
+      brewery_beers = []
+
+      if breweriesBeersResponse
+        for beer in breweriesBeersResponse do
+          brewery_beers.push(beer)
+        end
+        puts brewery_beers.length
+      else
+        brewery_beers = nil
+      end
+
+
+
       this_brewery = Brewery.create!(loc_id: brewery["id"],
       name: brewery["brewery"]["name"],
       streetAddress: brewery["streetAddress"],
       locality: brewery["locality"],
       country: brewery["country"]["name"],
-      region: brewery["region"],
+      a_region: brewery["region"],
       locationTypeDisplay: brewery["locationTypeDisplay"],
       isClosed: brewery["isClosed"],
       yearOpened: brewery["yearOpened"],
@@ -103,7 +121,9 @@ end
       squareMedium: squareMedium,
       squareLarge: squareLarge,
       isMassOwned: brewery["brewery"]["isMassOwned"],
-      brandClassification: brewery["brewery"]["brandClassification"]
+      brandClassification: brewery["brewery"]["brandClassification"],
+
+      beers_list: brewery_beers
 
       # squareLarge: brewery["brewery"]["squareLarge"],
       # squareLarge: brewery["brewery"]["squareLarge"],
@@ -111,11 +131,9 @@ end
 
 
       )
+      puts "brewery created"
 
-      breweryId = brewery["breweryId"]
-      # puts "breweryId: #{breweryId}"
-      breweryBeersUrl = "http://api.brewerydb.com/v2/brewery/#{breweryId}/beers/?key=9cbedc703b22c38506ed1375ea350381"
-      breweriesBeersResponse = HTTParty.get(breweryBeersUrl).parsed_response["data"]
+
 
 
 
