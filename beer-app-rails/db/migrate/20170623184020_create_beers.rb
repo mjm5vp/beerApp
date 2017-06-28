@@ -29,6 +29,7 @@ class CreateBeers < ActiveRecord::Migration[5.1]
 
       t.string :abv_strength
       t.string :bitterness
+      t.string :a_brewery_state
 
       t.string :brewery_name
       t.string :icon

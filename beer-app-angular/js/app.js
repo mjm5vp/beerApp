@@ -335,24 +335,24 @@ function BrewMoodControllerFunction(BeerFactory){
   self.models = {};
   self.cats = [
 
-    {category: 'British Origin Ales', abv_strength: 'very low', glass: 'Flute', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
-    {category: 'North American Origin Ales', abv_strength: 'low', glass: 'Goblet', isOrganic: "N", servingTemperature: "cold", bitterness: 'low'},
-    {category: 'Hybrid/mixed Beer', abv_strength: 'medium', glass: 'Mug', isOrganic: "Y", servingTemperature: "cool", bitterness: 'medium'},
-    {category: 'Belgian And French Origin Ales', abv_strength: 'high', glass: 'Pilsner', isOrganic: "Y", servingTemperature: "very_cold", bitterness: 'high'},
-    {category: 'North American Lager', abv_strength: 'very high', glass: 'Pint', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very high'},
-    {category: 'German Origin Ales', abv_strength: 'high', glass: 'Snifter', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
-    {category: 'European-germanic Lager', abv_strength: 'high', glass: 'Stange', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
-    {category: 'Irish Origin Ales', abv_strength: 'high', glass: 'Tulip', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
-    {category: 'Other Lager', abv_strength: 'high', glass: 'Weizen', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
-    {category: 'International Styles', abv_strength: 'high', glass: 'Oversized Wine Glass', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
-    {category: 'International Ale Styles', abv_strength: 'high', glass: 'Willi', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
-    {category: 'Mead, Cider, & Perry', abv_strength: 'high', glass: 'Thistle', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
-    {category: 'Malternative Beverages', abv_strength: 'high', glass: 'Flute', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
-    {category: 'European-germanic Lager', abv_strength: 'high', glass: 'Flute', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
-    {category: 'Other Origin', abv_strength: 'high', glass: 'Flute', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
+    {category: 'British Origin Ales', abv_strength: 'very low', glass: 'Flute', isOrganic: "Y", servingTemperatureDisplay: "Very Cold - (0-4C/32-39F)", bitterness: 'Very low', a_brewery_state: 'Virginia'},
+    {category: 'North American Origin Ales', abv_strength: 'low', glass: 'Goblet', isOrganic: "N", servingTemperatureDisplay: "Cold - (4-7C/39-45F)", bitterness: 'Low', a_brewery_state: 'District of Columbia'},
+    {category: 'Hybrid/mixed Beer', abv_strength: 'medium', glass: 'Mug', isOrganic: "Y", servingTemperatureDisplay: "Cool - (8-12C/45-54F)", bitterness: 'Medium', a_brewery_state: 'Maryland'},
+    {category: 'Belgian And French Origin Ales', abv_strength: 'high', glass: 'Pilsner', isOrganic: "Y", servingTemperatureDisplay: "Cellar - (12-14C/54-57F)", bitterness: 'High', a_brewery_state: 'Virginia'},
+    {category: 'North American Lager', abv_strength: 'very high', glass: 'Pint', isOrganic: "Y", servingTemperatureDisplay: "Cool - (8-12C/45-54F)", bitterness: 'Very high', a_brewery_state: 'Virginia'},
+    {category: 'German Origin Ales', abv_strength: 'high', glass: 'Snifter', isOrganic: "Y", servingTemperatureDisplay: "Cool - (8-12C/45-54F)", bitterness: 'very low', a_brewery_state: 'Virginia'},
+    {category: 'European-germanic Lager', abv_strength: 'high', glass: 'Stange', isOrganic: "Y", servingTemperatureDisplay: "Cool - (8-12C/45-54F)", bitterness: 'very low', a_brewery_state: 'Virginia'},
+    {category: 'Irish Origin Ales', abv_strength: 'high', glass: 'Tulip', isOrganic: "Y", servingTemperatureDisplay: "Cool - (8-12C/45-54F)", bitterness: 'very low', a_brewery_state: 'Virginia'},
+    {category: 'Other Lager', abv_strength: 'high', glass: 'Weizen', isOrganic: "Y", servingTemperatureDisplay: "Cool - (8-12C/45-54F)", bitterness: 'very low', a_brewery_state: 'Virginia'},
+    {category: 'International Styles', abv_strength: 'high', glass: 'Oversized Wine Glass', isOrganic: "Y", servingTemperatureDisplay: "Cool - (8-12C/45-54F)", bitterness: 'very low', a_brewery_state: 'Virginia'},
+    {category: 'International Ale Styles', abv_strength: 'high', glass: 'Willi', isOrganic: "Y", servingTemperatureDisplay: "Cool - (8-12C/45-54F)", bitterness: 'very low', a_brewery_state: 'Virginia'},
+    {category: 'Mead, Cider, & Perry', abv_strength: 'high', glass: 'Thistle', isOrganic: "Y", servingTemperatureDisplay: "Cool - (8-12C/45-54F)", bitterness: 'very low', a_brewery_state: 'Virginia'},
+    {category: 'Malternative Beverages', abv_strength: 'high', glass: 'Flute', isOrganic: "Y", servingTemperatureDisplay: "Cool - (8-12C/45-54F)", bitterness: 'very low', a_brewery_state: 'Virginia'},
+    {category: 'European-germanic Lager', abv_strength: 'high', glass: 'Flute', isOrganic: "Y", servingTemperatureDisplay: "Cool - (8-12C/45-54F)", bitterness: 'very low', a_brewery_state: 'Virginia'},
+    {category: 'Other Origin', abv_strength: 'high', glass: 'Flute', isOrganic: "Y", servingTemperatureDisplay: "Cool - (8-12C/45-54F)", bitterness: 'very low', a_brewery_state: 'Virginia'},
   ];
 
-  self.catNames = ["Alcohol Strength", "Bitterness", "Category", "Glass Type", "Organic?", "Serving Temperature"]
+  self.catNames = ["Brewery Location", "Alcohol Strength", "Bitterness", "Category", "Glass Type", "Organic?", "Serving Temperature"]
 
   // Functions - Public
   self.filterByProperties = filterByProperties;
