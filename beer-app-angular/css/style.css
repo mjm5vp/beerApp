@@ -9,6 +9,7 @@ body h1{
 footer{
   text-align: center;
   color: orange;
+  clear: both;
 }
 
 .header img{

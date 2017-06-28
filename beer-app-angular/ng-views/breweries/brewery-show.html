@@ -21,7 +21,6 @@
         <p>Mass Owned: {{vm.brewery.isMassOwned}}</p>
 
         <hr class="featurette-divider">
-
 </div>
 
     <div class="mapContainer">
@@ -32,14 +31,12 @@
 
     <aside class="userComments">
       <h1>Beers</h1>
-      <p>from {{vm.brewery.name}}</p>
-      <p>comments go here</p>
-      <p>comments go here</p>
-      <p>comments go here</p>
-      <p>comments go here</p>
-      <p>comments go here</p>
+      <p>from <b>{{vm.brewery.name}}</b></p>
 
-
-
+      <div class="beerContainer">
+        <div class="beerContainerBreweryShow" data-ng-repeat="beer in vm.brewery.beers_list">
+          <p class="style_name"><a data-ui-sref="beerShow({id: beer.id})">{{beer.name}} </a></p>
+        </div>
+      </div>
     </aside>
 </div>
