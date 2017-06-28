@@ -299,10 +299,15 @@ function BreweryShowControllerFunction(BreweryFactory, $stateParams){
 }
 
 function BeerShowControllerFunction(BeerFactory, BreweryFactory, $stateParams){
+
   let self = this
+  let colorDiv = $(".beer-color")
   BeerFactory.get({id: $stateParams.id}).$promise.then(function(data){
     // console.log(this.beer)
     self.beer = data
+    var color = "#" + self.beer.srm_hex
+    colorDiv.css('background-color', color)
+    console.log (data.srm_hex)
     var brewId = data.brewery_id
     var brewery = BreweryFactory.get({id: brewId}).$promise.then(function(brewdata){
     console.log("brewId: " + brewId)
