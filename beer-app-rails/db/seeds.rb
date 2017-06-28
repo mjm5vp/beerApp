@@ -17,21 +17,36 @@ all_beers = []
 
 def location_check(brew)
 
-  compare_brew = {region: brew["region"], locality: brew["locality"]}
+  compare_brew = {region: brew["region"]}
+    # , locality: brew["locality"]}
 
   locations = [
-    {region: "Virginia", locality: "Alexandria"},
-    {region: "Virginia", locality: "Fairfax"},
-    {region: "Virginia", locality: "Falls Church"},
-    {region: "Virginia", locality: "Leesburg"},
-    {region: "Virginia", locality: "Lovettsville"},
-    {region: "Virginia", locality: "Arlington"},
-    {region: "Virginia", locality: "McLean"},
-    {region: "Virginia", locality: "Manassas"},
-    {region: "Virginia", locality: "Reston"},
-    {region: "Virginia", locality: "Centreville"},
-    {region: "Virginia", locality: "Vienna"},
-    {region: "Virginia", locality: "Annadale"},
+    # {region: "Virginia", locality: "Alexandria"},
+    # {region: "Virginia", locality: "Fairfax"},
+    # {region: "Virginia", locality: "Falls Church"},
+    # {region: "Virginia", locality: "Leesburg"},
+    # {region: "Virginia", locality: "Lovettsville"},
+    # {region: "Virginia", locality: "Arlington"},
+    # {region: "Virginia", locality: "McLean"},
+    # {region: "Virginia", locality: "Manassas"},
+    # {region: "Virginia", locality: "Reston"},
+    # {region: "Virginia", locality: "Centreville"},
+    # {region: "Virginia", locality: "Vienna"},
+    # {region: "Virginia", locality: "Annadale"},
+    #
+    # {region: "District of Columbia", locality: "Washington"},
+    #
+    # {region: "Maryland", locality: "Annadale"},
+    # {region: "Maryland", locality: "Annadale"},
+    # {region: "Maryland", locality: "Annadale"},
+    # {region: "Maryland", locality: "Annadale"},
+    # {region: "Maryland", locality: "Annadale"},
+    # {region: "Maryland", locality: "Annadale"},
+
+    {region: "Virginia"},
+    {region: "Maryland"},
+    {region: "District of Columbia"}
+
   ]
   if locations.include? compare_brew
     puts brew["locality"]
@@ -49,6 +64,7 @@ end
 
   for brewery in breweriesResponse do
     if location_check(brewery)
+      if !all_breweries.any?{|a| a["streetAddress"] == brewery["streetAddress"]}
       all_breweries.push(brewery)
 
       if brewery["brewery"]["images"]
@@ -187,6 +203,7 @@ end
 
           abv_strength: abv_strength,
           bitterness: bitterness,
+          a_brewery_state: brewery["region"],
 
           brewery_name: brewery["brewery"]["name"],
           icon: icon,
@@ -207,7 +224,7 @@ end
       end
     end
   end
-
+end
 end
 
 
@@ -220,20 +237,20 @@ def find_localities
       breweriesResponse = HTTParty.get(breweriesUrl).parsed_response["data"]
 
       for brewery in breweriesResponse do
-        if location_check(brewery)
-          puts brewery["locality"]
+        # if location_check(brewery)
+        if brewery["region"] == "Maryland"
+          # puts brewery["locality"]
           all_localities.push(brewery["locality"])
         end
 
       end
 
   end
-  # all_localities.uniq!
-  # for loc in all_localities
-  #   puts loc
-  # end
+  all_localities.uniq!
+  for loc in all_localities
+    puts loc
+  end
 end
-
 
 
 puts "HTTParty Location Done"

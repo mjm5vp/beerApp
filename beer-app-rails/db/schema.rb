@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20170623184101) do
     t.string "srm_hex"
     t.string "abv_strength"
     t.string "bitterness"
+    t.string "a_brewery_state"
     t.string "brewery_name"
     t.string "icon"
     t.string "medium"
