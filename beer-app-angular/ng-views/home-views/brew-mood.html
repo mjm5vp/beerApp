@@ -4,7 +4,7 @@
 </div> -->
 
 <!-- <div ng-controller="BrewMoodController as vm"> -->
-  <div ng-repeat="(cat, hello) in vm.wines[0]" ng-init="vm.filter[cat] = {}">
+  <div ng-repeat="(cat, hello) in vm.cats[0]" ng-init="vm.filter[cat] = {}">
     <h3>{{ cat | capitalizeFirst }} <input type="checkbox" ng-model="models[cat]"></h3>
     <div class="quarter" ng-repeat="value in vm.getValuesFor(cat)" ng-show="models[cat]">
       <label>
