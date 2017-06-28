@@ -107,6 +107,32 @@ all_beers = []
           srm_hex = nil
         end
 
+        case beer["abv"].to_i
+        when 12..50
+          abv_strength = "very high"
+        when 9..11.99
+          abv_strength = "high"
+        when 7..8.99
+          abv_strength = "medium"
+        when 4..6.99
+          abv_strength = "low"
+        when 0..3.99
+          abv_strength = "very low"
+        end
+
+        case beer["ibu"].to_i
+        when 60..500
+          bitterness = "very high"
+        when 45..59.99
+          bitterness = "high"
+        when 30..44.99
+          bitterness = "medium"
+        when 10..29.99
+          bitterness = "low"
+        when 0..9.99
+          bitterness = "very low"
+        end
+
         puts "Beer: #{beer["name"]}"
         this_beer = Beer.create!(
         name: beer["name"],
@@ -131,6 +157,9 @@ all_beers = []
         category: category,
         style_name: style_name,
 
+        abv_strength: abv_strength,
+        bitterness: bitterness,
+
         brewery_name: brewery["brewery"]["name"],
         icon: icon,
         medium: medium,
@@ -141,6 +170,9 @@ all_beers = []
 
         brewery: this_brewery
         )
+
+
+
       end
     else
       puts "This brewery has no beers"

@@ -111,3 +111,8 @@ h1{
 .style_name{
   margin-bottom: 20px;
 }
+
+.cat-title{
+  font-family: 'Righteous', sans-serif;
+  margin-left: 10px;
+}

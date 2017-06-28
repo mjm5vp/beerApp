@@ -4,10 +4,10 @@
 </div> -->
 
 <!-- <div ng-controller="BrewMoodController as vm"> -->
-  <div ng-repeat="(cat, hello) in vm.cats[0]" ng-init="vm.filter[cat] = {}">
-    <h3>{{ cat | capitalizeFirst }} <input type="checkbox" ng-model="models[cat]"></h3>
+  <div ng-repeat="(cat, val) in vm.cats[0]" ng-init="vm.filter[cat] = {}">
+    <h3 class="cat-title">{{ vm.catNames[$index] | capitalizeFirst }} <input type="checkbox" ng-model="models[cat]"></h3>
     <div class="quarter" ng-repeat="value in vm.getValuesFor(cat)" ng-show="models[cat]">
-      <label>
+      <label class="cat-title">
         <input type="checkbox" ng-model="vm.filter[cat][value]" />
         {{ value }}
       </label>
@@ -15,12 +15,21 @@
     <hr />
   </div>
   <div>
-    <h3>Matching Beers</h3>
-    <div ng-repeat="beer in (vm.beers | filter:vm.filterByProperties) as filteredBeers">
-      <p><a data-ui-sref="beerShow({id: beer.id})">{{beer.name}} </a></p>
+    <h3 class="cat-title">Matching Beers: {{ filteredBeers.length }}</h3>
+
+    <div class="beers-container">
+
+
+    <div class="beer-container-index" ng-repeat="beer in (vm.beers | filter:vm.filterByProperties) as filteredBeers">
+      <p class="style_name"><a data-ui-sref="beerShow({id: beer.id})">{{beer.name}} </a></p>
+      <!-- <a data-ui-sref="breweryShow({id: beer.brewery_id})"><img class="beer-icon-image" src="{{beer.icon}}" alt=""></a> -->
+      <p class="category">{{beer.category}}</p>
+      <!-- <p><a data-ui-sref="beerShow({id: beer.id})">{{beer.name}} </a></p> -->
+    </div>
+
     </div>
     <hr />
-    <b>Number of results: {{ filteredBeers.length }}</b>
+
   </div>
 
 

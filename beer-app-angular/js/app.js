@@ -278,22 +278,24 @@ function BrewMoodControllerFunction(BeerFactory){
   self.models = {};
   self.cats = [
 
-    {category: 'British Origin Ales', glass: 'Flute', isOrganic: "Y", servingTemperature: "cellar"},
-    {category: 'North American Origin Ales', glass: 'Goblet', isOrganic: "N", servingTemperature: "cold"},
-    {category: 'Hybrid/mixed Beer', glass: 'Mug', isOrganic: "Y", servingTemperature: "cool"},
-    {category: 'Belgian And French Origin Ales', glass: 'Pilsner', isOrganic: "Y", servingTemperature: "very_cold"},
-    {category: 'North American Lager', glass: 'Pint', isOrganic: "Y", servingTemperature: "cellar"},
-    {category: 'German Origin Ales', glass: 'Snifter', isOrganic: "Y", servingTemperature: "cellar"},
-    {category: 'European-germanic Lager', glass: 'Stange', isOrganic: "Y", servingTemperature: "cellar"},
-    {category: 'Irish Origin Ales', glass: 'Tulip', isOrganic: "Y", servingTemperature: "cellar"},
-    {category: 'Other Lager', glass: 'Weizen', isOrganic: "Y", servingTemperature: "cellar"},
-    {category: 'International Styles', glass: 'Oversized Wine Glass', isOrganic: "Y", servingTemperature: "cellar"},
-    {category: 'International Ale Styles', glass: 'Willi', isOrganic: "Y", servingTemperature: "cellar"},
-    {category: 'Mead, Cider, & Perry', glass: 'Thistle', isOrganic: "Y", servingTemperature: "cellar"},
-    {category: 'Malternative Beverages', glass: 'Flute', isOrganic: "Y", servingTemperature: "cellar"},
-    {category: 'European-germanic Lager', glass: 'Flute', isOrganic: "Y", servingTemperature: "cellar"},
-    {category: 'Other Origin', glass: 'Flute', isOrganic: "Y", servingTemperature: "cellar"},
+    {category: 'British Origin Ales', abv_strength: 'very low', glass: 'Flute', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
+    {category: 'North American Origin Ales', abv_strength: 'low', glass: 'Goblet', isOrganic: "N", servingTemperature: "cold", bitterness: 'low'},
+    {category: 'Hybrid/mixed Beer', abv_strength: 'medium', glass: 'Mug', isOrganic: "Y", servingTemperature: "cool", bitterness: 'medium'},
+    {category: 'Belgian And French Origin Ales', abv_strength: 'high', glass: 'Pilsner', isOrganic: "Y", servingTemperature: "very_cold", bitterness: 'high'},
+    {category: 'North American Lager', abv_strength: 'very high', glass: 'Pint', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very high'},
+    {category: 'German Origin Ales', abv_strength: 'high', glass: 'Snifter', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
+    {category: 'European-germanic Lager', abv_strength: 'high', glass: 'Stange', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
+    {category: 'Irish Origin Ales', abv_strength: 'high', glass: 'Tulip', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
+    {category: 'Other Lager', abv_strength: 'high', glass: 'Weizen', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
+    {category: 'International Styles', abv_strength: 'high', glass: 'Oversized Wine Glass', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
+    {category: 'International Ale Styles', abv_strength: 'high', glass: 'Willi', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
+    {category: 'Mead, Cider, & Perry', abv_strength: 'high', glass: 'Thistle', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
+    {category: 'Malternative Beverages', abv_strength: 'high', glass: 'Flute', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
+    {category: 'European-germanic Lager', abv_strength: 'high', glass: 'Flute', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
+    {category: 'Other Origin', abv_strength: 'high', glass: 'Flute', isOrganic: "Y", servingTemperature: "cellar", bitterness: 'very low'},
   ];
+
+  self.catNames = ["Alcohol Strength", "Bitterness", "Category", "Glass Type", "Organic?", "Serving Temperature"]
 
   // Functions - Public
   self.filterByProperties = filterByProperties;
