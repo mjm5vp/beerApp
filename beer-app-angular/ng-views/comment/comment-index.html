@@ -11,9 +11,9 @@
     </form>
   </div>
 
-  <div data-ng-repeat="commenti in vm.comments">
+  <div data-ng-repeat="commenti in vm.comments | orderBy: 'created_at':true">
     <p><a ui-sref="commentShow({id: $index+1})">{{commenti.title}}</a>
-      <a ui-sref="commentEdit({id: $index+1.id})">Edit</a>
+      <!-- <a ui-sref="commentEdit({id: $index+1.id})">Edit</a> -->
      </p>
     <p>{{commenti.body}}</p>
   </div>
