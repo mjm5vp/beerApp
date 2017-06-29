@@ -11,12 +11,12 @@ input[type="checkbox"][id^="cb"] {
 }
 
 label {
-  border: 1px solid #fff;
+  /*border: 1px solid #fff;
   padding: 10px;
   display: block;
   position: relative;
   margin: 10px;
-  cursor: pointer;
+  cursor: pointer;*/
 }
 
 label:before {
@@ -45,7 +45,7 @@ label img {
 }
 
 :checked + label {
-  border-color: #ddd;
+  /*border-color: #ddd;*/
 }
 
 :checked + label:before {
@@ -64,4 +64,15 @@ label img {
   display: inline-block;
   /*min-width: 15%;*/
   margin: 5px;
+}
+
+.cats-container{
+  width: 80%;
+  margin: auto;
+}
+
+.cat-container{
+  background-color: #F19A00;
+  border-radius: 10px;
+  border: 2px solid black;
 }

@@ -7,7 +7,7 @@ class CreateBreweries < ActiveRecord::Migration[5.1]
       t.string :locality
       t.string :country
       t.string :a_region
-      t.string :locationTypeDisplay
+      t.string :b_locationTypeDisplay
       t.string :isClosed
       t.string :yearOpened
       t.string :phone

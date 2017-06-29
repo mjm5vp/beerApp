@@ -59,6 +59,7 @@ h1{
   border: 2px solid black;
   border-radius: 5px;
   text-align: center;
+  background-color: #bfbdbd;
 }
 
 .beer-container-index{
@@ -70,6 +71,7 @@ h1{
   border-radius: 5px;
   text-align: center;
   position: relative;
+  background-color: #bfbdbd;
 }
 
 .brewery-container-index{
@@ -81,7 +83,7 @@ h1{
   border-radius: 5px;
   text-align: center;
   position: relative;
-
+  background-color: white;
 }
 
 .icon-image{
@@ -114,5 +116,6 @@ h1{
 
 .cat-title{
   font-family: 'Righteous', sans-serif;
-  margin-left: 10px;
+  margin-left: 20px;
+
 }

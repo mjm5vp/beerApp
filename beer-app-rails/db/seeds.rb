@@ -45,12 +45,12 @@ def location_check(brew)
     # {region: "Maryland", locality: "Annadale"},
 
     {region: "Virginia"},
-    {region: "Maryland"},
+    # {region: "Maryland"},
     {region: "District of Columbia"}
 
   ]
   if locations.include? compare_brew
-    puts brew["locality"]
+    # puts brew["locality"]
     return true
   else
     return false
@@ -95,7 +95,7 @@ end
           beer[:id] = beer_id_count
           brewery_beers.push(beer)
         end
-        puts brewery_beers.length
+        # puts brewery_beers.length
       else
         brewery_beers = nil
       end
@@ -108,7 +108,7 @@ end
       locality: brewery["locality"],
       country: brewery["country"]["name"],
       a_region: brewery["region"],
-      locationTypeDisplay: brewery["locationTypeDisplay"],
+      b_locationTypeDisplay: brewery["locationTypeDisplay"],
       isClosed: brewery["isClosed"],
       yearOpened: brewery["yearOpened"],
       phone: brewery["phone"],
@@ -174,28 +174,28 @@ end
 
           case beer["abv"].to_i
           when 12..50
-            abv_strength = "very high"
+            abv_strength = "Very high"
           when 9..11.99
-            abv_strength = "high"
+            abv_strength = "High"
           when 7..8.99
-            abv_strength = "medium"
+            abv_strength = "Medium"
           when 4..6.99
-            abv_strength = "low"
+            abv_strength = "Low"
           when 0..3.99
-            abv_strength = "very low"
+            abv_strength = "Very low"
           end
 
           case beer["ibu"].to_i
           when 60..500
-            bitterness = "very high"
+            bitterness = "Very high"
           when 45..59.99
-            bitterness = "high"
+            bitterness = "High"
           when 30..44.99
-            bitterness = "medium"
+            bitterness = "Medium"
           when 10..29.99
-            bitterness = "low"
+            bitterness = "Low"
           when 0..9.99
-            bitterness = "very low"
+            bitterness = "Very low"
           end
 
           # puts "Beer: #{beer["name"]}"

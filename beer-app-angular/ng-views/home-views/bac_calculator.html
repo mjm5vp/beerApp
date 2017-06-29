@@ -4,7 +4,7 @@
 <select ng-model="selectedcity" ng-options="city.name for city in vm.cities | filter:  {countryId: vm.selectedcountrty.countryId}"}>
   <option value="">Select City</option>
 </select> -->
-<div ng-hide="vm.startpage">
+<div class="terms" ng-hide="vm.startpage">
   <p>Terms and agreemnts:</p>
   <p >By clicking this, I confirm the follwing agreemnts.<br>
     I am 21 and above. </br>
@@ -24,7 +24,7 @@
 <div ng-show="vm.startpage" >
 
 
-<div id="bac">
+<div class="terms" id="bac">
     <div class="section">
       <input ng-model="vm.x" type="radio" name="optionselect" ng-value=false >Body Alchol Content Calculator
       <input ng-model="vm.x" type="radio" name="optionselect" ng-value=true >How much should I drink?

@@ -1,6 +1,17 @@
 body{
   background-color: #F6ED93
 }
+.test-color{
+  /*background-color: #F6ED93;*/
+  background-color: #FFD607;
+  font-family: 'Righteous', sans-serif;
+}
+
+.terms{
+  margin: auto;
+  border: 2px solid black;
+  text-align: center;
+}
 
 body h1{
   font-family: 'Righteous', sans-serif;
@@ -113,12 +124,13 @@ aside h1{
   height: 40px;
 }
 .section{
-  width:100%;
+  width:50%;
   text-align: center;
   padding: 10px;
+
 }
 .section1{
-  width:500px;
+  width:50%;
   padding: 10px;
   text-align: center;
 }
