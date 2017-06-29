@@ -4,8 +4,9 @@
 <select ng-model="selectedcity" ng-options="city.name for city in vm.cities | filter:  {countryId: vm.selectedcountrty.countryId}"}>
   <option value="">Select City</option>
 </select> -->
+<div class="well well-lg">
 <div class="terms" ng-hide="vm.startpage">
-  <p>Terms and agreements:</p>
+  <p>Terms and Agreements:</p>
   <p >By clicking this, I confirm the following agreements.<br>
     I am 21 and above. </br>
     I understand that other factors might change BAC results in reality.</br>
@@ -20,7 +21,7 @@
 <button ng-click="vm.start()">Submit</button>
 <!-- <button id="xx"  type="button" name="button">Checking</button> -->
 </div>
-
+</div>
 <div ng-show="vm.startpage" >
 
 <div class="well well-lg">
