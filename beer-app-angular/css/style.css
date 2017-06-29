@@ -1,24 +1,12 @@
 body{
   background-color: #F6ED93
 }
-.test-color{
-  /*background-color: #F6ED93;*/
-  background-color: #FFD607;
-  font-family: 'Righteous', sans-serif;
-}
-
-.terms{
-  margin: auto;
-  border: 2px solid black;
-  text-align: center;
-}
 
 body h1{
   font-family: 'Righteous', sans-serif;
 }
 
 footer{
-  height: 100px;
   text-align: center;
   color: orange;
   clear: both;
@@ -125,14 +113,15 @@ aside h1{
   height: 40px;
 }
 .section{
-  width:50%;
+  width:100%;
   text-align: center;
   padding: 10px;
-
 }
 .section1{
-  width:50%;
+  clear: both;
+  width:500px;
   padding: 10px;
+  margin: auto;
   text-align: center;
 }
 
@@ -156,6 +145,11 @@ aside h1{
 
 .sorts button{
   margin: 3px;
+}
+
+.well-lg{
+  width: 80%;
+  margin: auto;
 }
 
 @media screen and (max-width: 600px) {
