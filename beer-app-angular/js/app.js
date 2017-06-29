@@ -34,7 +34,7 @@ angular
   ])
   .controller("CommentIndexController",["CommentFactory",CommentIndexControllerFunction])
   .controller("CommentShowController",["CommentFactory","$stateParams",CommentShowControllerFunction])
-  .controller("CommentNewController",["CommentFactory",CommentNewControllerFunction])
+  // .controller("CommentNewController",["CommentFactory",CommentNewControllerFunction])
   .controller("CommentEditController",["CommentFactory","$stateParams",CommentEditControllerFunction])
   .controller("BeerPercentController",[
     "BeerFactory",
@@ -216,12 +216,12 @@ function RouterFunction($stateProvider){
     controller: "CommentShowController",
 })
 
-.state("commentNew",{
-  url: "/comments/new",
-  templateUrl: "js/ng-views/comment/comment-new.html",
-  controller: "CommentNewController",
-  controllerAs: "vm"
-})
+// .state("commentNew",{
+//   url: "/comments/new",
+//   templateUrl: "js/ng-views/comment/comment-new.html",
+//   controller: "CommentNewController",
+//   controllerAs: "vm"
+// })
 .state("commentEdit",{
   url: "/comments/:id/edit",
   templateUrl: "js/ng-views/comment/comment-edit.html",
@@ -283,20 +283,23 @@ function BeerIndexControllerFunction( BeerFactory, BreweryFactory ){
 function CommentIndexControllerFunction( CommentFactory ){
   console.log("Am CommentIndexControllerFunction");
   this.comments = CommentFactory.query();
-  console.log(this.comments);
+  this.comment = new CommentFactory();
+  this.create = function(){
+    this.comment.$save()
+  }
 }
 function CommentShowControllerFunction(CommentFactory, $stateParams){
   console.log("Am CommentShowControllerFunction");
 
   this.comment = CommentFactory.get({id: $stateParams.id});
 }
-function CommentNewControllerFunction(CommentFactory){
-  console.log("Am CommentNewControllerFunction");
-  this.comment = new CommentFactory();
-  this.create = function(){
-    this.comment.$save()
-  }
-}
+// function CommentNewControllerFunction(CommentFactory){
+//   console.log("Am CommentNewControllerFunction");
+//   this.comment = new CommentFactory();
+//   this.create = function(){
+//     this.comment.$save()
+//   }
+// }
 
 function CommentEditControllerFunction( CommentFactory, $stateParams ){
   console.log("Am CommentEditControllerFunction");
