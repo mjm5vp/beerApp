@@ -1,5 +1,10 @@
 "use strict";
 
+$(".navbar-header a").on("click", function(){
+   $(".nav").find(".active").removeClass("active");
+   $(this).parent().addClass("active");
+});
+
 angular
   .module("beerApp", [
     "ngMap",

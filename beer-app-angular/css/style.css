@@ -1,36 +1,67 @@
 body{
   background-color: #F6ED93
 }
+
 .test-color{
   /*background-color: #F6ED93;*/
   background-color: #FFE30D;
   font-family: 'Righteous', sans-serif;
   position: relative;
+  color: black;
 }
 .navbar{
   /*opacity: 0.9;*/
   position: fixed;
   z-index: 5;
-background: rgba(255, 255, 255, 0);
-color: black;
-top: 0;
-left: 0;
-right:0;
-padding: 16px;
-
-}
-li{
+  background: rgba(255, 255, 255, 0);
   color: black;
+  top: 0;
+  left: 0;
+  right:0;
+  padding: 6px;
+
+}
+.navbar-header a{
+  color: white;
+  font-size: 30px;
+  text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+
 }
 
-.navbar-collapse{
+.navbar-header a:hover{
+  color: white;
+  background-color: rgba(236, 153, 48, .3);
+  text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+
+}
+.navbar-header a:active {
+  color: white;
+  background-color: rgba(236, 153, 48, .3);
+  text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+
+}
+
+.black{
   color: black;
+  font-family: 'Righteous', sans-serif;
 }
-.nav{
-  /*opacity: 1;
-  color: black;*/
+
+.black:hover{
 
 }
+
+.navbar-collapse.collapse a:hover{
+  color: black;
+  font-family: 'Righteous', sans-serif;
+  background-color: rgba(236, 153, 48, .3);
+}
+
+.navbar-collapse.collapse a .active{
+  color: black;
+  font-family: 'Righteous', sans-serif;
+  background-color: rgba(236, 153, 48, .3);
+}
+
 
 .terms{
   margin: auto;
@@ -39,16 +70,29 @@ li{
 }
 
 
+
 body h1{
   font-family: 'Righteous', sans-serif;
 }
 
 footer{
-  height: 75px;
   text-align: center;
   color: orange;
   clear: both;
 }
+
+.navbar-header{
+  /*background-color: rgba(236, 153, 48, 0.5);*/
+  color: black;
+  padding-left: 5px;
+  text-align: center;
+  font-family: 'Righteous', sans-serif;
+}
+
+
+
+
+
 
 .header img{
   /*height: 500px;*/
@@ -185,7 +229,7 @@ aside h1{
 }
 
 .sorts{
-  /*background-color: #FFD607;*/
+
   padding: 5px;
   margin: auto;
   width: 90%
