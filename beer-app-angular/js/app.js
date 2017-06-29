@@ -40,7 +40,7 @@ angular
   .controller("CommentIndexController",["CommentFactory",CommentIndexControllerFunction])
   .controller("CommentShowController",["CommentFactory","$stateParams",CommentShowControllerFunction])
   // .controller("CommentNewController",["CommentFactory",CommentNewControllerFunction])
-  .controller("CommentEditController",["CommentFactory","$stateParams",CommentEditControllerFunction])
+  // .controller("CommentEditController",["CommentFactory","$stateParams",CommentEditControllerFunction])
   .controller("BeerPercentController",[
     "BeerFactory",
     BeerPercentControllerFunction
@@ -229,12 +229,12 @@ function RouterFunction($stateProvider){
 //   controller: "CommentNewController",
 //   controllerAs: "vm"
 // })
-.state("commentEdit",{
-  url: "/comments/:id/edit",
-  templateUrl: "js/ng-views/comment/comment-edit.html",
-  controller: "CommentEditController",
-  controllerAs: "vm"
-})
+// .state("commentEdit",{
+//   url: "/comments/:id/edit",
+//   templateUrl: "js/ng-views/comment/comment-edit.html",
+//   controller: "CommentEditController",
+//   controllerAs: "vm"
+// })
   .state("beerMood", {
     url: "/beer-mood",
     templateUrl: "ng-views/home-views/beer-mood.html",
@@ -308,16 +308,16 @@ function CommentShowControllerFunction(CommentFactory, $stateParams){
 //   }
 // }
 
-function CommentEditControllerFunction( CommentFactory, $stateParams ){
-  console.log("Am CommentEditControllerFunction");
-  this.comment = CommentFactory.get({id: $stateParams.id});
-  this.update = function(){
-    this.comment.$update({id: $stateParams.id})
-  }
-  this.destroy = function(){
-    this.comment.$delete({id: $stateParams.id})
-  }
-}
+// function CommentEditControllerFunction( CommentFactory, $stateParams ){
+//   console.log("Am CommentEditControllerFunction");
+//   this.comment = CommentFactory.get({id: $stateParams.id});
+//   this.update = function(){
+//     this.comment.$update({id: $stateParams.id})
+//   }
+//   this.destroy = function(){
+//     this.comment.$delete({id: $stateParams.id})
+//   }
+// }
 function BreweryShowControllerFunction(BreweryFactory, $stateParams){
   this.brewery = BreweryFactory.get({id: $stateParams.id});
   console.log(this.brewery.beers_list)
