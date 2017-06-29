@@ -11,6 +11,7 @@ angular
     "$stateProvider",
     RouterFunction
   ])
+  .controller("startpage",[startFunction])
   .controller("BreweryIndexController", [
     "BreweryFactory",
     BreweryIndexControllerFunction
@@ -75,6 +76,9 @@ angular
   .factory("CommentFactory",["$resource",
   CommentFactoryFunction])
 
+  function startFunction(){
+    console.log("startFunction");
+  }
   function HomePageControllerFunction(){
     console.log("Am the homepage controller");
     this.start =function (){
@@ -107,10 +111,21 @@ angular
     let initialNumberOfDrink = 0
     this.numberOfStandardDrink=initialNumberOfDrink
     this.Up = function (){
+    if (this.numberOfStandardDrink<50)
+    {
       this.numberOfStandardDrink++
     }
+    else {
+      alert("Please enter lower value. The maximum is 50.")
+    }
+    }
     this.Down = function (){
-      this.numberOfStandardDrink--
+      if (this.numberOfStandardDrink>0){
+        this.numberOfStandardDrink--
+      }
+      else {
+        alert("Please enter higher value. The minimum is 0.")
+      }
     }
     this.recommend =function (){
       this.messageBoard = true;
