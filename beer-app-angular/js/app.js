@@ -219,6 +219,7 @@ function RouterFunction($stateProvider){
     url: "/comments/:id",
     templateUrl: "ng-views/comment/comment-show.html",
     controller: "CommentShowController",
+    controllerAs: "vm"
 })
 
 // .state("commentNew",{
