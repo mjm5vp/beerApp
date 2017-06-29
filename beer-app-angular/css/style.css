@@ -1,7 +1,6 @@
 body{
   background-color: #F6ED93
 }
-<<<<<<< HEAD
 .test-color{
   /*background-color: #F6ED93;*/
   background-color: #FFD607;
@@ -20,18 +19,14 @@ body{
   border: 2px solid black;
   text-align: center;
 }
-=======
->>>>>>> 56bd14167b595a110b4a7a93969b094922f5ed29
+
 
 body h1{
   font-family: 'Righteous', sans-serif;
 }
 
 footer{
-<<<<<<< HEAD
   height: 75px;
-=======
->>>>>>> 56bd14167b595a110b4a7a93969b094922f5ed29
   text-align: center;
   color: orange;
   clear: both;
