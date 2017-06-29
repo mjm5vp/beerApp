@@ -193,6 +193,7 @@ aside h1{
 
 .beerContent{
   display: block;
+  /*margin: 50px;*/
   margin: auto;
   background-color: white;
   width: 50%;

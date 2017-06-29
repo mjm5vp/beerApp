@@ -4,6 +4,7 @@
     <h1>{{vm.beer.name}}</h1>
     <p>Style: {{vm.beer.style_name}}</p>
     <p>Brewery: <a ui-sref="breweryShow({id: vm.brewery.id} )">{{vm.brewery.name}}</a></p>
+    <a ui-sref="breweryShow({id: vm.brewery.id} )"><img src="{{vm.beer.medium}}" alt=""></a>
     <p>ABV: {{vm.beer.abv}}% | IBU: {{vm.beer.ibu}} | Organic: {{vm.beer.isOrganic}} </p>
     <p>About: {{vm.beer.description}}<p>
     <p>Serving Temperature: {{vm.beer.servingTemperature}}</p>
