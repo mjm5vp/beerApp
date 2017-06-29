@@ -12,6 +12,18 @@ footer{
   clear: both;
 }
 
+.navbar-header{
+  background-color: rgba(236, 153, 48, 0.5);
+  color: black;
+  padding-left: 15px;
+  text-align: center;
+  font-family: 'Righteous', sans-serif;
+}
+
+.navbar-header:hover{
+  background-color: rgba(236, 153, 48, 1);
+}
+
 .header img{
   height: 300px;
   width: 100%;
