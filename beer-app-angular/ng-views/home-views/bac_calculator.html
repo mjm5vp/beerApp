@@ -77,8 +77,9 @@
           </div>
           <button ng-click="vm.recommend()">Submit</button>
           <p ng-show="vm.messageBoard">Based on your response, you can drink  {{vm.allowednumberOfStandardDrink}}.
-            <br>Caustion:Your current mood, weather condition and personality might affect the result. </p>
-            <!-- <p>Click here to see the possible list of beers that macthes your interest.</p> <button ng-click="vm.filter()"></button>  -->
+            <br>Caustion:Your current mood, weather condition and personality might affect the result. </br>
+               If you would like some beers based on your interest, click here <a ui-sref="beerPercent">Beers</a>
+          </p>
         </div>
       </div>
   </div>

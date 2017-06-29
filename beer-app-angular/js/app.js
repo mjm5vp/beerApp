@@ -101,7 +101,7 @@ angular
     this.startpage= localStorage.getItem("startpage")
     console.log(this.startpage);
   }
-  
+
   function HomePageControllerFunction(){
     console.log("Am the homepage controller");
 
@@ -302,6 +302,7 @@ function CommentIndexControllerFunction( CommentFactory ){
   this.comment = new CommentFactory();
   this.create = function(){
     this.comment.$save()
+    location.reload()
   }
 }
 function CommentShowControllerFunction(CommentFactory, $stateParams){
