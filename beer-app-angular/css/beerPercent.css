@@ -54,8 +54,8 @@ h1{
 .beer-container{
   font-family: 'Righteous', sans-serif;
   margin: 5px;
-  height: 200px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
   border: 2px solid black;
   border-radius: 5px;
   text-align: center;
@@ -65,13 +65,13 @@ h1{
 .beer-container-index{
   font-family: 'Righteous', sans-serif;
   margin: 5px;
-  height: 150px;
+  height: 200px;
   width: 150px;
   border: 2px solid black;
   border-radius: 5px;
   text-align: center;
   position: relative;
-  background-color: #bfbdbd;
+  background-color: white;
 }
 
 .brewery-container-index{
@@ -84,30 +84,44 @@ h1{
   text-align: center;
   position: relative;
   background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .icon-image{
   height: 50px;
   width: 50px;
   position: absolute;
-  bottom: 0;
+  bottom: 50px;
   transform: translate(-50%, -50%);
 }
 
-.beer-icon-image{
-  height: 25px;
-  width: 25px;
+.locatlity-text{
   position: absolute;
-  bottom: 0;
+  width: 100%;
+  bottom: 0px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
+  /*text-align: center;*/
+}
+
+.beer-icon-image{
+  height: 30px;
+  width: 30px;
+  position: absolute;
+  bottom: 75px;
   transform: translate(-50%, -50%);
 }
 
 .category{
-  /*position: absolute;*/
-  /*bottom: 0;
-  left: 0;
-  font-size: 9px;*/
-  /*transform: translate(-50%, -50%);*/
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 auto;
 }
 
 .style_name{

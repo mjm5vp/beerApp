@@ -13,7 +13,7 @@
         {{ value }}
       </label>
     </div>
-  
+
   </div>
 </div>
   <div>
@@ -22,10 +22,10 @@
     <div class="beers-container">
 
 
-    <div class="beer-container-index" ng-repeat="beer in (vm.beers | filter:vm.filterByProperties) as filteredBeers">
+    <div class="beer-container" ng-repeat="beer in (vm.beers | filter:vm.filterByProperties) as filteredBeers">
       <p class="style_name"><a data-ui-sref="beerShow({id: beer.id})">{{beer.name}} </a></p>
       <!-- <a data-ui-sref="breweryShow({id: beer.brewery_id})"><img class="beer-icon-image" src="{{beer.icon}}" alt=""></a> -->
-      <p class="category">{{beer.category}}</p>
+      <p>{{beer.category}}</p>
       <!-- <p><a data-ui-sref="beerShow({id: beer.id})">{{beer.name}} </a></p> -->
     </div>
 
