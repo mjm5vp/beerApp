@@ -78,9 +78,6 @@ angular
 
   function startFunction(){
     console.log("startFunction");
-  }
-  function HomePageControllerFunction(){
-    console.log("Am the homepage controller");
     this.start =function (){
       if (this.termsRead==2){
         this.startpage=true
@@ -90,6 +87,10 @@ angular
         alert('Please, click on read and agree to the Terms and Conditions and Privacy Policy')
       }
     }
+  }
+  function HomePageControllerFunction(){
+    console.log("Am the homepage controller");
+
     //Note: This data will be replaced with the real data
     var cities = [
       {cityid: 1, name: 'DC', countryId: 1},
