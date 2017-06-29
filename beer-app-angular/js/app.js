@@ -83,8 +83,12 @@ angular
 
   function startFunction(){
     console.log("startFunction");
+    this.startpage= localStorage.getItem("x")
+    console.log(this.startpage);
     this.start =function (){
+
       if (this.termsRead==2){
+        localStorage.setItem("x", 3)
         this.startpage=true
       }
       else
