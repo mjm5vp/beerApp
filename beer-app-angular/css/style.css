@@ -68,6 +68,7 @@ body{
   margin: auto;
   border: 2px solid black;
   text-align: center;
+  z-index: 5;
 }
 
 
@@ -97,7 +98,7 @@ footer{
 
 .header{
   /*height: 500px;*/
-  background-image:url("http://www.lowgluten.org/wp-content/uploads/2015/08/header2015b.png");
+  /*background-image:url("http://www.lowgluten.org/wp-content/uploads/2015/08/header2015b.png");*/
   background-position: 0px -100px;
   background-repeat: no-repeat;
   max-width: 100%;

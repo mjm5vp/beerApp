@@ -55,37 +55,38 @@
 
     <div ng-show="vm.startpage">
       <!-- Fixed navbar -->
-         <nav class="navbar navbar-inverse navbar-fixed-top">
-           <div class="container">
-             <div class="navbar-header">
-               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                 <span class="sr-only">Toggle navigation</span>
-                 <span class="icon-bar"></span>
-                 <span class="icon-bar"></span>
-                 <span class="icon-bar"></span>
-               </button>
-               <a class="navbar-brand" href="/#/">Brew Mood</a>
-             </div>
-             <div id="navbar" class="navbar-collapse collapse">
-               <ul class="nav navbar-nav">
-                 <li><a href="/#/breweries">Breweries</a></li>
-                 <li><a href="/#/beers">Beers</a></li>
-                 <li class="dropdown">
-                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sorts/Searches <span class="caret"></span></a>
-                   <ul class="dropdown-menu">
-                     <li><a href="/#/beer-mood">Find Beers by Mood</a></li>
-                     <li><a href="/#/brew-mood">Find Breweries by Mood</a></li>
-                     <li><a href="/#/beerpercent">Find Beers by ABV</a></li>
-                     <li><a href="/#/beer-ibu">Find Beers by IBU</a></li>
-                     <li><a href="/#/breweries">Search All Breweries</a></li>
-                     <li><a href="/#/beers">Search All Beers</a></li>
-                   </ul>
-                 </li>
-                 <li><a href="/#/comments">About</a></li>
-               </ul>
-             </div><!--/.nav-collapse -->
-           </div>
-         </nav>
+        <nav class="navbar navbar-top">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" data-toggle="tab"href="/#/">Brew Mood</a>
+            </div>
+
+            <div id="navbar" class="navbar-collapse collapse">
+              <ul class="nav navbar-nav">
+                <li><a class="black" href="/#/breweries">Breweries</a></li>
+                <li><a class="black"href="/#/beers">Beers</a></li>
+                <li class="dropdown">
+                  <a class="black" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sorts/Searches <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a class="black" href="/#/beer-mood">Find Beers by Mood</a></li>
+                    <li><a class="black" href="/#/brew-mood">Find Breweries by Mood</a></li>
+                    <li><a class="black" href="/#/beerpercent">Find Beers by ABV</a></li>
+                    <li><a class="black" href="/#/beer-ibu">Find Beers by IBU</a></li>
+                    <li><a class="black" href="/#/breweries">Search All Breweries</a></li>
+                    <li><a class="black" href="/#/beers">Search All Beers</a></li>
+                  </ul>
+                </li>
+                <li><a class="black" href="/#/comments">About</a></li>
+              </ul>
+            </div><!--/.nav-collapse -->
+          </div>
+        </nav>
 
         <div class="header">
           <img src="http://www.lowgluten.org/wp-content/uploads/2015/08/header2015b.png"></img>
@@ -95,14 +96,14 @@
           <h1>Brew Mood<h1>
         </div>
 
-        <div class="sorts">
+        <!-- <div class="sorts">
           <button type="button" class="btn btn-md btn-warning"><a href="/#/beer-mood">Find Beers by Mood</a></button>
           <button type="button" class="btn btn-md btn-warning"><a href="/#/brew-mood">Find Breweries by Mood</a></button>
           <button type="button" class="btn btn-md btn-warning"><a href="/#/beerpercent">Find Beers by ABV</a></button>
           <button type="button" class="btn btn-md btn-warning"><a href="/#/beer-ibu">Find Beers by IBU</a></button>
           <button type="button" class="btn btn-md btn-warning"><a href="/#/beers">Find Beers by Name</a></button>
           <button type="button" class="btn btn-md btn-warning"><a href="/#/breweries">Find Breweries by Name</a></button>
-        </div>
+        </div> -->
 
 
       <main class="test-color" ui-view></main>
@@ -113,59 +114,7 @@
       </footer>
     </div>
 
-  <body ng-controller="startpage">
 
-    <!-- Fixed navbar -->
-       <nav class="navbar navbar-top">
-         <div class="container">
-           <div class="navbar-header">
-             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-               <span class="sr-only">Toggle navigation</span>
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-             </button>
-             <a class="navbar-brand" data-toggle="tab"href="/#/">Brew Mood</a>
-           </div>
-
-           <div id="navbar" class="navbar-collapse collapse">
-             <ul class="nav navbar-nav">
-               <li><a class="black" href="/#/breweries">Breweries</a></li>
-               <li><a class="black"href="/#/beers">Beers</a></li>
-               <li class="dropdown">
-                 <a class="black" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sorts/Searches <span class="caret"></span></a>
-                 <ul class="dropdown-menu">
-                   <li><a class="black" href="/#/beer-mood">Find Beers by Mood</a></li>
-                   <li><a class="black" href="/#/brew-mood">Find Breweries by Mood</a></li>
-                   <li><a class="black" href="/#/beerpercent">Find Beers by ABV</a></li>
-                   <li><a class="black" href="/#/beer-ibu">Find Beers by IBU</a></li>
-                   <li><a class="black" href="/#/breweries">Search All Breweries</a></li>
-                   <li><a class="black" href="/#/beers">Search All Beers</a></li>
-                 </ul>
-               </li>
-               <li><a class="black" href="/#/comments">About</a></li>
-             </ul>
-           </div><!--/.nav-collapse -->
-         </div>
-       </nav>
-
-      <div class="header">
-        <!-- <img src="http://www.lowgluten.org/wp-content/uploads/2015/08/header2015b.png"></img> -->
-      </div>
-
-      <div class="logoHeader">
-        <h1>Brew Mood<h1>
-      </div>
-
-
-
-
-    <main class="test-color" ui-view></main>
-
-    <footer>
-      <hr class="featurette-divider">
-      <p>Brew Mood, 2017</p>
-    </footer>
 
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   </body>
