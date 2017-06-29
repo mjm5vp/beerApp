@@ -5,8 +5,39 @@
   <option value="">Select City</option>
 </select> -->
 
+<<<<<<< HEAD
 
 <!-- <div ng-show="vm.startpage" > -->
+=======
+<div class="sorts">
+  <button type="button" class="btn btn-lg btn-warning"><a href="/#/beer-mood">Find Beers by Mood</a></button>
+  <button type="button" class="btn btn-lg btn-warning"><a href="/#/brew-mood">Find Breweries by Mood</a></button>
+  <button type="button" class="btn btn-lg btn-warning"><a href="/#/beerpercent">Find Beers by ABV</a></button>
+  <button type="button" class="btn btn-lg btn-warning"><a href="/#/beer-ibu">Find Beers by IBU</a></button>
+  <button type="button" class="btn btn-lg btn-warning"><a href="/#/beers">Find Beers by Name</a></button>
+  <button type="button" class="btn btn-lg btn-warning"><a href="/#/breweries">Find Breweries by Name</a></button>
+</div>
+
+<div class="terms" ng-hide="vm.startpage">
+  <div class="well well-lg">
+  <p>Terms and Agreements:</p>
+  <p >By clicking this, I confirm the following agreements.<br>
+    I am 21 and above. </br>
+    I understand that other factors might change BAC results in reality.</br>
+    This app is not responsible for any consequences. </br>
+    Please drink safely.
+  </p>
+  <p>
+    <!-- <input type="checkbox"  ng-model="vm.termsRead" ng-value="0.68" > -->
+    <input  ng-model="vm.termsRead" type="radio" name="termsRead" ng-value="2">
+    I have read and agree to the above terms and conditions:
+  </p>
+<button ng-click="vm.start()">Submit</button>
+<!-- <button id="xx"  type="button" name="button">Checking</button> -->
+</div>
+</div>
+<div ng-show="vm.startpage" >
+>>>>>>> 118dbebe1a572c2b0281d51c00a72cc7bb65c71f
 
 <div class="well well-lg">
 <div class="terms" id="bac">

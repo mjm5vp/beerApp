@@ -2,6 +2,75 @@ body{
   background-color: #F6ED93
 }
 
+.test-color{
+  /*background-color: #F6ED93;*/
+  background-color: #FFE30D;
+  font-family: 'Righteous', sans-serif;
+  position: relative;
+  color: black;
+}
+.navbar{
+  /*opacity: 0.9;*/
+  position: fixed;
+  z-index: 5;
+  background: rgba(255, 255, 255, 0);
+  color: black;
+  top: 0;
+  left: 0;
+  right:0;
+  padding: 6px;
+
+}
+.navbar-header a{
+  color: white;
+  font-size: 30px;
+  text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+
+}
+
+.navbar-header a:hover{
+  color: white;
+  background-color: rgba(236, 153, 48, .3);
+  text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+
+}
+.navbar-header a:active {
+  color: white;
+  background-color: rgba(236, 153, 48, .3);
+  text-shadow: -1px 0 black, 0 2px black, 2px 0 black, 0 -1px black;
+
+}
+
+.black{
+  color: black;
+  font-family: 'Righteous', sans-serif;
+}
+
+.black:hover{
+
+}
+
+.navbar-collapse.collapse a:hover{
+  color: black;
+  font-family: 'Righteous', sans-serif;
+  background-color: rgba(236, 153, 48, .3);
+}
+
+.navbar-collapse.collapse a .active{
+  color: black;
+  font-family: 'Righteous', sans-serif;
+  background-color: rgba(236, 153, 48, .3);
+}
+
+
+.terms{
+  margin: auto;
+  border: 2px solid black;
+  text-align: center;
+}
+
+
+
 body h1{
   font-family: 'Righteous', sans-serif;
 }
@@ -13,28 +82,38 @@ footer{
 }
 
 .navbar-header{
-  background-color: rgba(236, 153, 48, 0.5);
+  /*background-color: rgba(236, 153, 48, 0.5);*/
   color: black;
-  padding-left: 15px;
+  padding-left: 5px;
   text-align: center;
   font-family: 'Righteous', sans-serif;
 }
 
-.navbar-header:hover{
-  background-color: rgba(236, 153, 48, 1);
-}
+
+
+
+
 
 .header img{
-  height: 300px;
+  /*height: 500px;*/
   width: 100%;
+  margin: 0;
+ padding: 0;
+ position: absolute;
+ top: -90px;
+ left:0;
+ right:0;
+ bottom:0;
+ background-size:cover;
 }
 
 .logoHeader{
-  height: 10px;
+  height: 200px;
+
 }
 .logoHeader h1{
   position: relative;
-  top: -175px;
+  /*top: -175px;*/
   font-family: 'Righteous', sans-serif;
   font-size: 100px;
   color: black;
@@ -58,6 +137,7 @@ footer{
 }
 
 .brewImg{
+  top: 0;
   position: inherit;
   margin: auto;
 }
