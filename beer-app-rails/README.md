@@ -3,8 +3,8 @@
 ##Brew Mood
 
 ##About
-This app is project 3 (group porject) for WDI16 - GA's Web Development Immersive course.
-Brew Mood is a brewery and beer web app that aims to help you find the right beer for you, based on a variety of attributes.
+This app is project 3 (group project) for WDI16 - GA's Web Development Immersive course.
+Brew Mood is a brewery and beer web app that aims to help you find the right beer for you, based on a variety of attributes. This app is specific to DC, MD, and VA.
 
 ##Project Requirements
 -This app must contain a backend API with at least 2 models – no associations are required
@@ -28,11 +28,11 @@ Contribution Guidelines
 
 ##Launching this app
 1. Clone repo to local
-2. Bundle install
-3. Drop, create, migrate, and seed Database
+2. Run bundle install from terminal
+3. In terminal: drop, create, migrate, and seed Database if using local clone. Visit http://www.brewerydb.com/developers to get your own API key to use BreweryDB's most current API.
 
 ##Future Iterations
-This app was completed in 5 days and there are many additional features that we'd add to make this 100% and more user friendly.
+This app was completed in 5 days and there are many additional features that we'd add to make this 100% functional and more user friendly.
 1. Add a comments model so people can leave feedback and comments on breweries.
 2. Add user authentication, which opens a whole realm of possibilities like user favorites, brewery checkin, more secure posting parameters.
 3. Rating system for beers.
