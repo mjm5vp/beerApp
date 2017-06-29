@@ -5,17 +5,17 @@
   <option value="">Select City</option>
 </select> -->
 <div class="terms" ng-hide="vm.startpage">
-  <p>Terms and agreemnts:</p>
-  <p >By clicking this, I confirm the follwing agreemnts.<br>
+  <p>Terms and agreements:</p>
+  <p >By clicking this, I confirm the following agreements.<br>
     I am 21 and above. </br>
-    I understand that some factor might change BAC result in reality.</br>
-    There is no way the app will be responsible for any consequences. </br>
-    And son on.
+    I understand that other factors might change BAC results in reality.</br>
+    This app is not responsible for any consequences. </br>
+    Please drink safely.
   </p>
   <p>
     <!-- <input type="checkbox"  ng-model="vm.termsRead" ng-value="0.68" > -->
     <input  ng-model="vm.termsRead" type="radio" name="termsRead" ng-value="2">
-    I read and agree the above terms and conditions:
+    I have read and agree to the above terms and conditions:
   </p>
 <button ng-click="vm.start()">Submit</button>
 <button id="xx"  type="button" name="button">kkk</button>
@@ -26,10 +26,10 @@
 
 <div class="terms" id="bac">
     <div class="section">
-      <input ng-model="vm.x" type="radio" name="optionselect" ng-value=false >Body Alchol Content Calculator
+      <input ng-model="vm.x" type="radio" name="optionselect" ng-value=false >Body Alcohol Content Calculator
       <input ng-model="vm.x" type="radio" name="optionselect" ng-value=true >How much should I drink?
       <div ng-hide="vm.x">
-        <p>Number of total Standard Drink:    {{vm.numberOfStandardDrink}}
+        <p>Number of total Standard Drinks:    {{vm.numberOfStandardDrink}}
           <button ng-click="vm.Up()" >UP</button>
           <button ng-click="vm.Down()">Down</button>
         <p>Body weight [pounds] :<input ng-model="vm.bodyWeightInPound" value="0"></p>
@@ -47,7 +47,7 @@
             <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="6">6
           </div>
           <button ng-click="vm.calculate()">Calculate</button>
-          <p ng-show="vm.messageBoard">The BAC total consumption is {{vm.BACPercentage}}, but conidering the elapsed time
+          <p ng-show="vm.messageBoard">The BAC total consumption is {{vm.BACPercentage}}, but considering the elapsed time
              it will be {{vm.currentBACPercentage}}</p>
           <p ng-show="vm.messageBoard">As per this result, {{vm.message}}</p>
         </div>
@@ -67,12 +67,12 @@
           <input ng-model="vm.elapsedTime" type="radio" name="elapsedTimeSelect" ng-value="6">6
           </br>
           <input ng-model="vm.abv" type="radio" name="abv" ng-value="4/5" checked> Light beer (< 4%abv)
-          <input ng-model="vm.abv" type="radio" name="abv" ng-value="1"> Normal(4 % - 6% abv)
+          <input ng-model="vm.abv" type="radio" name="abv" ng-value="1"> Normal (4 % - 6% abv)
           <input ng-model="vm.abv" type="radio" name="abv" ng-value="6/5" > Strong (>6% abv)
           <div>
             <input ng-model="vm.ibu" type="radio" name="ibu" ng-value="4/5" checked> Less Bitter (< 20 IBU)
             <img id ="optionIcon" src="http://www.craftbeer.com/wp-content/uploads/_SF/thumbnails/belgian-style-blonde-ale.jpg" alt="Non-bitter beer">
-            <input ng-model="vm.ibu" type="radio" name="ibu" ng-value="1"> Meduim Bitter (20-40 IBU)
+            <input ng-model="vm.ibu" type="radio" name="ibu" ng-value="1"> Medium Bitter (20-40 IBU)
             <img id ="optionIcon" src="https://www.beerbrokerxl.nl/themes/beerbroker/images/beer-glass.png" alt="Normal beer">
             <input  ng-model="vm.ibu" type="radio" name="ibu" ng-value="6/5" > More Bitter (>40 IBU)
             <img id ="optionIcon" src="http://oliverbrewingco.com/site/wp-content/uploads/2015/04/obc-beer-darkhorse2.png" alt="Bitter beer">

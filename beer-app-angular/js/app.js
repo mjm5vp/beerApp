@@ -447,19 +447,32 @@ function BrewMoodControllerFunction(BreweryFactory){
   self.filter = {};
   self.models = {};
   self.cats = [
-    {a_region: "Virginia", b_locationTypeDisplay: "Micro Brewery"},
-    {a_region: "District of Columbia", b_locationTypeDisplay: "Macro Brewery"},
-    {a_region: "Maryland", b_locationTypeDisplay: "Nano Brewery"},
-    {a_region: "Virginia", b_locationTypeDisplay: "Brewpub"},
-    {a_region: "Virginia", b_locationTypeDisplay: "Production Facility"},
-    {a_region: "Virginia", b_locationTypeDisplay: "Office"},
-    {a_region: "Virginia", b_locationTypeDisplay: "Tasting Room"},
-    {a_region: "Virginia", b_locationTypeDisplay: "Restaurant/Ale House"},
-    {a_region: "Virginia", b_locationTypeDisplay: "Cidery"},
-    {a_region: "Virginia", b_locationTypeDisplay: "Meadery"},
+    {a_region: "Virginia", locality: "Alexandria", locationTypeDisplay: "Micro Brewery"},
+    {a_region: "District of Columbia", locality: "Fairfax", locationTypeDisplay: "Macro Brewery"},
+    {a_region: "Maryland", locality: "Falls Church", locationTypeDisplay: "Nano Brewery"},
+    {a_region: "Virginia", locality: "Leesburg", locationTypeDisplay: "Brewpub"},
+    {a_region: "Virginia", locality: "Lovettsville", locationTypeDisplay: "Production Facility"},
+    {a_region: "Virginia", locality: "Arlington", locationTypeDisplay: "Office"},
+    {a_region: "Virginia", locality: "McLean", locationTypeDisplay: "Tasting Room"},
+    {a_region: "Virginia", locality: "Manassas", locationTypeDisplay: "Restaurant/Ale House"},
+    {a_region: "Virginia", locality: "Reston", locationTypeDisplay: "Cidery"},
+    {a_region: "Virginia", locality: "Centreville", locationTypeDisplay: "Meadery"},
+    {a_region: "Virginia", locality: "Vienna", locationTypeDisplay: "Meadery"},
+    {a_region: "Virginia", locality: "Annadale", locationTypeDisplay: "Meadery"},
+    {a_region: "Virginia", locality: "Charlottesville", locationTypeDisplay: "Meadery"},
+    {a_region: "Virginia", locality: "Washington", locationTypeDisplay: "Meadery"},
+    {a_region: "Virginia", locality: "Bethesda", locationTypeDisplay: "Meadery"},
+    {a_region: "Virginia", locality: "Baltimore", locationTypeDisplay: "Meadery"},
+    {a_region: "Virginia", locality: "Silver Spring", locationTypeDisplay: "Meadery"},
+    {a_region: "Virginia", locality: "Gaithersburg", locationTypeDisplay: "Meadery"},
+    {a_region: "Virginia", locality: "Columbia", locationTypeDisplay: "Meadery"},
+    {a_region: "Virginia", locality: "National Harbor", locationTypeDisplay: "Meadery"},
+    {a_region: "Virginia", locality: "Annapolis", locationTypeDisplay: "Meadery"},
+    {a_region: "Virginia", locality: "Hanover", locationTypeDisplay: "Meadery"},
+    {a_region: "Virginia", locality: "Prince Frederick", locationTypeDisplay: "Meadery"}
   ];
 
-  self.catNames = ["Location", "Type"]
+  self.catNames = ["State", "City", "Type"]
 
   // Functions - Public
   self.filterByProperties = filterByProperties;

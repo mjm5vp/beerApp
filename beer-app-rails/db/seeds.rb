@@ -18,35 +18,38 @@ beer_id_count = 0
 
 def location_check(brew)
 
-  compare_brew = {region: brew["region"]}
-    # , locality: brew["locality"]}
+  compare_brew = {region: brew["region"], locality: brew["locality"]}
 
   locations = [
-    # {region: "Virginia", locality: "Alexandria"},
-    # {region: "Virginia", locality: "Fairfax"},
-    # {region: "Virginia", locality: "Falls Church"},
-    # {region: "Virginia", locality: "Leesburg"},
-    # {region: "Virginia", locality: "Lovettsville"},
-    # {region: "Virginia", locality: "Arlington"},
-    # {region: "Virginia", locality: "McLean"},
-    # {region: "Virginia", locality: "Manassas"},
-    # {region: "Virginia", locality: "Reston"},
-    # {region: "Virginia", locality: "Centreville"},
-    # {region: "Virginia", locality: "Vienna"},
-    # {region: "Virginia", locality: "Annadale"},
-    #
-    # {region: "District of Columbia", locality: "Washington"},
-    #
-    # {region: "Maryland", locality: "Annadale"},
-    # {region: "Maryland", locality: "Annadale"},
-    # {region: "Maryland", locality: "Annadale"},
-    # {region: "Maryland", locality: "Annadale"},
-    # {region: "Maryland", locality: "Annadale"},
-    # {region: "Maryland", locality: "Annadale"},
+    {region: "Virginia", locality: "Alexandria"},
+    {region: "Virginia", locality: "Fairfax"},
+    {region: "Virginia", locality: "Falls Church"},
+    {region: "Virginia", locality: "Leesburg"},
+    {region: "Virginia", locality: "Lovettsville"},
+    {region: "Virginia", locality: "Arlington"},
+    {region: "Virginia", locality: "McLean"},
+    {region: "Virginia", locality: "Manassas"},
+    {region: "Virginia", locality: "Reston"},
+    {region: "Virginia", locality: "Centreville"},
+    {region: "Virginia", locality: "Vienna"},
+    {region: "Virginia", locality: "Annadale"},
+    {region: "Virginia", locality: "Charlottesville"},
 
-    {region: "Virginia"},
+    {region: "District of Columbia", locality: "Washington"},
+
+    {region: "Maryland", locality: "Bethesda"},
+    {region: "Maryland", locality: "Baltimore"},
+    {region: "Maryland", locality: "Silver Spring"},
+    {region: "Maryland", locality: "Gaithersburg"},
+    {region: "Maryland", locality: "Columbia"},
+    {region: "Maryland", locality: "National Harbor"},
+    {region: "Maryland", locality: "Annapolis"},
+    {region: "Maryland", locality: "Hanover"},
+    {region: "Maryland", locality: "Prince Frederick"},
+
+    # {region: "Virginia"},
     # {region: "Maryland"},
-    {region: "District of Columbia"}
+    # {region: "District of Columbia"}
 
   ]
   if locations.include? compare_brew
@@ -108,7 +111,7 @@ end
       locality: brewery["locality"],
       country: brewery["country"]["name"],
       a_region: brewery["region"],
-      b_locationTypeDisplay: brewery["locationTypeDisplay"],
+      locationTypeDisplay: brewery["locationTypeDisplay"],
       isClosed: brewery["isClosed"],
       yearOpened: brewery["yearOpened"],
       phone: brewery["phone"],

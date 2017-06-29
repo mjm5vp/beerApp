@@ -76,3 +76,8 @@ label img {
   border-radius: 10px;
   border: 2px solid black;
 }
+
+.description-container{
+  margin-left: 100px;
+  width: 30%;
+}
