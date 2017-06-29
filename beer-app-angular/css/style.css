@@ -1,10 +1,11 @@
 body{
-  background-color: #F6ED93
+  /*background-color: #F6ED93*/
 }
 
 .test-color{
   /*background-color: #F6ED93;*/
   background-color: #FFE30D;
+  /*background-image:url("https://ibb.co/hUjKXk");*/
   font-family: 'Righteous', sans-serif;
   position: relative;
   color: black;
@@ -94,9 +95,14 @@ footer{
 
 
 
-.header img{
+.header{
   /*height: 500px;*/
-  width: 100%;
+  background-image:url("http://www.lowgluten.org/wp-content/uploads/2015/08/header2015b.png");
+  background-position: 0px -100px;
+  background-repeat: no-repeat;
+  max-width: 100%;
+  /*max-width: 100%;*/
+  min-height: 200px;
   margin: 0;
  padding: 0;
  position: absolute;
