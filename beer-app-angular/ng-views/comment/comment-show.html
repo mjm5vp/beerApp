@@ -1,3 +1,10 @@
-<p>Welcome to comment show page, but no further information.</p>
-  <p>{{comment.title}}</p>
-  <p>{{comment.body}}</p>
+
+  <p>{{vm.comment.title}}</p>
+  <p>{{vm.comment.body}}</p>
+  <p>You can edit or delete your messages below.</p>
+  <form>
+    <input value="vm.comment.title" data-ng-model="vm.comment.title" />
+    <input value="vm.comment.body" data-ng-model="vm.comment.body" />
+    <button data-ng-click="vm.update()">Update</button>
+    <button data-ng-click="vm.destroy()">Delete</button>
+  </form>

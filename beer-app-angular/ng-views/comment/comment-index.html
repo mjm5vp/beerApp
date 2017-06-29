@@ -5,13 +5,15 @@
 
   <div ng-show="vm.addComment">
     <form>
-      <input placeholder="title" data-ng-model="vm.title" />
-      <input placeholder="body" data-ng-model="vm.body" />
+      <input placeholder="title" data-ng-model="vm.comment.title" />
+      <input placeholder="body" data-ng-model="vm.comment.body" />
       <button type="button" data-ng-click="vm.create()">Create</button>
     </form>
   </div>
 
   <div data-ng-repeat="commenti in vm.comments">
-    <p>{{commenti.title}} </p>
+    <p><a ui-sref="commentShow({id: $index+1})">{{commenti.title}}</a>
+      <a ui-sref="commentEdit({id: $index+1.id})">Edit</a>
+     </p>
     <p>{{commenti.body}}</p>
   </div>
