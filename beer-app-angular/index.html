@@ -34,7 +34,7 @@
   </head>
 
   <body ng-controller="startpage as vm">
-    <div class="terms" ng-hide="vm.startpage=='3'">
+    <div class="terms" ng-hide="vm.startpage">
       <div class="well well-lg">
       <p>Terms and Agreements:</p>
       <p >By clicking this, I confirm the following agreements.<br>
@@ -53,7 +53,7 @@
     </div>
     </div>
 
-    <div ng-show="vm.startpage=='3'">
+    <div ng-show="vm.startpage">
       <!-- Fixed navbar -->
         <nav class="navbar navbar-top">
           <div class="container">

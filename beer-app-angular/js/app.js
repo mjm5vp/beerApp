@@ -82,21 +82,26 @@ angular
   CommentFactoryFunction])
 
   function startFunction(){
-    console.log("startFunction");
-    this.startpage= localStorage.getItem("x")
-    console.log(this.startpage);
+
     this.start =function (){
 
       if (this.termsRead==2){
-        localStorage.setItem("x", 3)
+        localStorage.setItem("startpage", true)
         this.startpage=true
       }
       else
       {
         alert('Please, click on read and agree to the Terms and Conditions and Privacy Policy')
       }
+
+      // location.reload()
     }
+
+    console.log("startFunction");
+    this.startpage= localStorage.getItem("startpage")
+    console.log(this.startpage);
   }
+  
   function HomePageControllerFunction(){
     console.log("Am the homepage controller");
 
