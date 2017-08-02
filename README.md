@@ -28,3 +28,12 @@ Add user authentication, which opens a whole realm of possibilities like user fa
 Rating system for beers.
 Map to populate breweries nearby based on location services API.
 Expand the database to include breweries from across the US and then international.
+
+## Deployment
+The app is deployed using AWS and can be found: http://brewmood.com.s3-website-us-east-1.amazonaws.com/
+
+## Screen shot of the app:
+
+![alt text](Screenshot-1.png)
+
+![alt text](Screenshot-2.png)
